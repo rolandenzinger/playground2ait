@@ -27,6 +27,15 @@ public class Person {
     public void deletePerson(personID) {
         personID = null;
         firstName = null;
+        lastName = null;
+        socialSecurityNumber = null;
+        street = null;
+        zip = null;
+        city = null;
+        country = null;
+        birthday = null;
+        telephone = null;
+
     }
 
     public void listAllPersons() {
