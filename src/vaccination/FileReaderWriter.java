@@ -40,8 +40,22 @@ public class FileReaderWriter {
 		
 		//Elias
 		//Das ist ein Test
+
 		
-		
+	}
+	public boolean DeleteEntry(String key, int id){
+
+		return true;
+	}
+	public String[] ReadAllEntriesWithKey(String key){
+		String[] arr = new String[8];
+
+		return arr;
+	}
+	public String GetInfoFromBlock(String infoblock, ){
+		String info = null;
+
+		return info;
 	}
 
 }
