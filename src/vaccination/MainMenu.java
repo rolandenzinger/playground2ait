@@ -23,6 +23,7 @@ public class MainMenu {
 		Über diese Applikation[über]
 		Beenden               [Beenden]
 		";
+		//änderung
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
