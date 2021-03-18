@@ -31,7 +31,7 @@ public class FileReaderWriter {
 		this.info8 = info8;
 		this.info9 = info9;
 		this.info10 = info10;
-		String infoBlock;
+		
 	}
 	
 	public void fileWriting(String infoBlock) 
@@ -58,8 +58,7 @@ public class FileReaderWriter {
    		return infoBlock;
 	
 	
-		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
-		return infoBlock;
+		
 		
 	}
 	public boolean DeleteEntry(String key, int id){
