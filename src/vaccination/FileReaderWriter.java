@@ -36,7 +36,7 @@ public class FileReaderWriter {
 		
 	}
 	
-	public void fileReading() {
+	public void fileReading(int key, int id) {
 		
 		//Elias
 		//Das ist ein Test
