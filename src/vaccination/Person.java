@@ -10,7 +10,7 @@ public class Person {
     private String birthday;
     private int telephone;
 
-    public String addNewPerson(String personID,String firstName,String lastName,int socialSecurityNumber,String street,String zip,String city,String country,String birthday,int telephone) {
+    public String addNewPerson(String personID,String firstName,String lastName,int socialSecurityNumber,String street,String zip,String city,String country,String birthday,int telephone) { //fügt eine person hinzu
         this.personID = personID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,7 +24,7 @@ public class Person {
         return personID;
     }
 
-    public void deletePerson(String personID) {
+    public void deletePerson(String personID) { //löscht eine Person
         this.personID = null;
         this.firstName = null;
         this.lastName = null;
@@ -38,7 +38,7 @@ public class Person {
         System.out.println("Löschen verlief erfolgreich");
     }
 
-    public void listAllPersons() {
+    public void listAllPersons() { //listet alle Personen auf
         
     }
 }
