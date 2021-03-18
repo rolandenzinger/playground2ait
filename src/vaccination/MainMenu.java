@@ -26,7 +26,7 @@ public class MainMenu {
 				break;
 
 			case "zeit":
-				timeslot();
+				timeSlot();
 				break;
 			
 			case "termin":
@@ -49,7 +49,7 @@ public class MainMenu {
 		} while (!quit);
 	}
 
-	public void TimeSlot() {
+	public void timeSlot() {
 			do {
 				switch(UserInterFace.AskForString("Eingabe: \n Löschen Eingeben")) {
  					case "";
@@ -70,7 +70,7 @@ public class MainMenu {
 			} while (!quit);
 		}
 
-	public void Person() {
+	public void personal() {
 			do {
 				switch(UserInterFace.AskForString("Eingabe: \n Person anlegen 
 															\n Person löschen
@@ -109,6 +109,15 @@ public static void about() {
 	"Programmierinformation:"+
 	"Entwickelt von: 2AIT Software Devellopment\n";
 	UserInterface.SaySomething(output);
+
 }
+
+	public static void scedule() {
+
+	}
+
+	public void location() {
+
+	}
 
 }
