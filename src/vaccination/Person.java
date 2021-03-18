@@ -25,7 +25,7 @@ public class Person {
     }
 
     public void deletePerson(personID) {
-        System.out.println("Löschen verlief erfolgreich");
+        personID = null;
     }
 
     public void listAllPersons() {
