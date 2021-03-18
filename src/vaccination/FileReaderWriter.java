@@ -72,7 +72,7 @@ public class FileReaderWriter {
 
 		return arr;
 	}
-	public String GetInfoFromBlock(String infoblock){
+	public String GetInfoFromBlock(String infoblock, int IndexOfRequestedInformation){
 		String info = null;
 
 		return info;
