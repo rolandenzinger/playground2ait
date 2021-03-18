@@ -8,7 +8,8 @@ class PersonTest {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		Person one = new Person();
+		assertEquals("556363" , one.addNewPerson("556363", "Marco", "Stocker", 220605, "Straße", "8724", "Spielberg", "Öesterreich", "22.06.2005", 06761232205));
 	}
 
 }
