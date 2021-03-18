@@ -11,7 +11,7 @@ public class Person {
     private String country;
     private String birthday;
     private int telephone;
-    private String[] list;
+    private String[] list = {};
 
     public String addNewPerson(String personID,String firstName,String lastName,int socialSecurityNumber,String street,String zip,String city,String country,String birthday,int telephone) { //fügt eine person hinzu
         this.personID = personID;
@@ -44,6 +44,9 @@ public class Person {
     }
 
     public void listAllPersons(fullname) { //listet alle Personen auf
-        
+        for (int i = 0; i < list.length-1; i++) {
+            list[i].add(fullname);
+        }
+
     }
 }
