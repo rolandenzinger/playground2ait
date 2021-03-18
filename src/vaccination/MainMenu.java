@@ -54,7 +54,7 @@ public class MainMenu {
 				switch(UserInterFace.AskForString("Eingabe: \n Löschen Eingeben")) {
  					case "";
 
-					addTime();
+					 TimeSlot(int slot-id , String timeStart, String timeEnd, String date, boolean scheduled);
 
 					// Methode "einfügen" aufrufen
 					break;
