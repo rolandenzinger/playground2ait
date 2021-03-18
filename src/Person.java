@@ -26,6 +26,7 @@ public class Person {
 
     public void deletePerson(String personID) {
         personID = null;
+        firstName = null;
     }
 
     public void listAllPersons() {
