@@ -11,7 +11,7 @@ public class Person {
 	private String country;
 	private String birthday;
 	private int telephone;
-	private String[] list = {};
+	private String[] list = new String[100];
 
 	public String addNewPerson(String personID, String firstName, String lastName, int socialSecurityNumber,
 			String street, String zip, String city, String country, String birthday, int telephone) { // fügt eine
@@ -33,7 +33,7 @@ public class Person {
 
 	public void deletePerson(String personID) { // löscht eine Person
 		for (int i = 0; i < list.length; i++) {
-			if (list[i].equals(lastName + " " + firstName)) {
+			if (list[i].equals(personID)) {
 				list[i] = null;
 			}
 		}
@@ -50,7 +50,7 @@ public class Person {
 		System.out.println("Löschen verlief erfolgreich");
 	}
 
-	private void listCreate(String fullname) { // listet alle Personen auf
+	public void listCreate(String fullname) { // listet alle Personen auf
 		for (int i = 0; i < list.length; i++) {
 			if (list[i] == null) {
 				list[i] = fullname;
