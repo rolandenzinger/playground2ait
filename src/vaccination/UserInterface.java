@@ -24,7 +24,7 @@ public class UserInterface {
 	
 
 	
-	public String AskForString ( ) {
+	public static String AskForString ( ) {
 		return null;
 		
 		
@@ -32,14 +32,14 @@ public class UserInterface {
 		
 	}
 	
-	public Date AskForDate ( ) {
+	public static Date AskForDate ( ) {
 		return null;
 		
 		
 		
 	}
 	
-	public int AskForNumber ( ) {
+	public static int AskForNumber (String question) {
 		return 0;
 		
 		
