@@ -35,7 +35,7 @@ public class Person {
         country = null;
         birthday = null;
         telephone = null;
-
+        System.out.println("Löschen verlief erfolgreich");
     }
 
     public void listAllPersons() {
