@@ -24,7 +24,7 @@ public class Person {
         return personID;
     }
 
-    public void deletePerson(personID) {
+    public void deletePerson(String personID) {
         personID = null;
     }
 
