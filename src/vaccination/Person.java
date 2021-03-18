@@ -1,3 +1,5 @@
+package vaccination;
+
 public class Person {
     private String personID;
     private String firstName;
