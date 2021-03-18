@@ -22,6 +22,8 @@ public class Person {
         this.country = country;
         this.birthday = birthday;
         this.telephone = telephone;
+        String fullName = lastName+" "+firstName;
+        listAllPersons(fullName);
         return personID;
     }
 
@@ -39,7 +41,7 @@ public class Person {
         System.out.println("Löschen verlief erfolgreich");
     }
 
-    public void listAllPersons() { //listet alle Personen auf
+    public void listAllPersons(fullname) { //listet alle Personen auf
         
     }
 }
