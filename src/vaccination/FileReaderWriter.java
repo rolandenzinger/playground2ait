@@ -41,6 +41,10 @@ public class FileReaderWriter {
 		//Elias
 		//Das ist ein Test
 		
+		String infoBlock;
+		
+		
+		
 		
 	}
 
