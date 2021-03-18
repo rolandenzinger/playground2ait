@@ -1,6 +1,7 @@
 package vaccination;
 
 import java.sql.Date;
+import java.util.Scanner;
 
 public class UserInterface {
 
@@ -8,11 +9,14 @@ public class UserInterface {
 		
 		
 		
-		
 	}
 	
-	public String AskForString ( ) {
-		return null;
+	public String AskForString (String question) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println(question);
+		
+		String user = sc.nextLine();		
+		return user;
 		
 		
 		
