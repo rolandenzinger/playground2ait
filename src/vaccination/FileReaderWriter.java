@@ -42,7 +42,7 @@ public class FileReaderWriter {
 		//Das ist ein Test
 
 		
-<<<<<<< HEAD
+
 	}
 	public boolean DeleteEntry(String key, int id){
 
@@ -53,16 +53,16 @@ public class FileReaderWriter {
 
 		return arr;
 	}
-	public String GetInfoFromBlock(String infoblock, ){
+	public String GetInfoFromBlock(String infoblock){
 		String info = null;
 
 		return info;
-=======
+
 		String infoBlock;
 		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
 		return infoBlock;
 		
->>>>>>> a48aeec78ffb62a6a4f72c351608e0140ae57ece
+
 	}
 
 }
