@@ -13,6 +13,7 @@ class PersonTest {
 				"12.34.5678", 12345678));
 		one.listAllPersons();
 		one.deletePerson("556363");
+		one.listCreate("Max Mustermann");
 	}
 
 }
