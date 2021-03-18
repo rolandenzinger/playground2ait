@@ -52,9 +52,6 @@ public class FileReaderWriter {
 		
 		//Elias
 
-		//Das ist ein Test
-		//noch ein test
-		
 		String infoBlock;
 		
 		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
