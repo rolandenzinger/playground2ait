@@ -1,5 +1,9 @@
 package vaccination;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class FileReaderWriter {
 	private int key;
 	private int id;
@@ -27,22 +31,30 @@ public class FileReaderWriter {
 		this.info8 = info8;
 		this.info9 = info9;
 		this.info10 = info10;
-		
+		String infoBlock;
 	}
 	
-	public void fileWriting() {
-		
-		
-		
+	public void fileWriting(String infoBlock) 
+			 throws IOException {
+	    
+	    BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
+	    writer.append(' ');
+	    writer.append(infoBlock);
+	    
+	    writer.close();
 	}
+		
+		
+		
 	
-	public String fileReading(int key, int id) {
+	
+	public String fileReading(String infoBlock, int key, int id) {
 		
 		//Elias
 		//Das ist ein Test
-		String infoBlock;
+		
 		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
-		return infoBlock;
+   		return infoBlock;
 	}
 	public boolean DeleteEntry(String key, int id){
 
