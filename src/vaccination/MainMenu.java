@@ -10,8 +10,6 @@ public class MainMenu {
 		// TODO Auto-generated method stub
 		
 		System.out.println("Hello 2AIT");
-		
-		// put your code here
 
 	}
 
