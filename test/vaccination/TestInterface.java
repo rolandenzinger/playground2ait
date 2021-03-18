@@ -6,7 +6,7 @@ public class TestInterface {
 
 	   @Test public void TestSaySmth() {
 	    	
-		   UserInterface.SaySomething("Hello");
+		   UserInterface.SaySomething("Bye");
 		   
           //asserEquals(UserInterface.SaySomething("hello"));
 
