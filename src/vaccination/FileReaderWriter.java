@@ -40,9 +40,9 @@ public class FileReaderWriter {
 		
 		//Elias
 		//Das ist ein Test
-
-		
-
+		String infoBlock;
+		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
+		return infoBlock;
 	}
 	public boolean DeleteEntry(String key, int id){
 
@@ -57,12 +57,6 @@ public class FileReaderWriter {
 		String info = null;
 
 		return info;
-
-		String infoBlock;
-		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
-		return infoBlock;
-		
-
 	}
 
 }
