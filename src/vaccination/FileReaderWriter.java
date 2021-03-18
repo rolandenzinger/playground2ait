@@ -42,8 +42,7 @@ public class FileReaderWriter {
 		//Das ist ein Test
 		
 		String infoBlock;
-		
-		
+		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
 		
 		
 	}
