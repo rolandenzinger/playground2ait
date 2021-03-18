@@ -97,6 +97,18 @@ public class MainMenu {
 
 
 			}while(!quit);
+
 }
 
-}}
+public static void about() {
+	//prints the Information for the Programm
+	String output = 
+	"----INFORMATION----\n"+
+	"Programm information:\n"+
+	"Dies ist ein Programm zur Speicherung und verwaltung von Impfkampagnen\n\n"+
+	"Programmierinformation:"+
+	"Entwickelt von: 2AIT Software Devellopment\n";
+	UserInterface.SaySomething(output);
+}
+
+}
