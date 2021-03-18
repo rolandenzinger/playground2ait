@@ -23,25 +23,23 @@ public class TimeSlots {
 	public int AddNewSlot(int slotId, int locationId, int personId, String date, String timeStart, String timeEnd) {
 
 		String[] tmp = schedules.clone();
-		schedules =  new String[schedules.length + 1];
-		
+		schedules = new String[schedules.length + 1];
+		slotId++;
+
 		for (int i = 0; i < tmp.length; i++) {
-			
-			if(i < schedules.length-1) {
+
+			if (i < schedules.length - 1) {
 				schedules[i] = tmp[i];
 			} else {
-				schedules[i] = slotId + ";" +locationId + ";" + personId + ";" + date + ";" + timeStart + ";" + timeEnd;
+				schedules[i] = slotId + ";" + locationId + ";" + personId + ";" + date + ";" + timeStart + ";"
+						+ timeEnd;
 			}
-			
+
 		}
-		
-		
-		
-		
-		
-		
-		
+
 		return slotId;
 	}
+	
+	
 
 }
