@@ -51,10 +51,16 @@ public class FileReaderWriter {
 	public String fileReading(String infoBlock, int key, int id) {
 		
 		//Elias
+
 		//Das ist ein Test
 		
 		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
    		return infoBlock;
+	
+	
+		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
+		return infoBlock;
+		
 	}
 	public boolean DeleteEntry(String key, int id){
 
