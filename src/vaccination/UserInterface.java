@@ -1,14 +1,13 @@
 package vaccination;
 
+import java.util.Scanner;
 import java.awt.Color;
 import java.sql.Date;
-
-import java.util.Scanner;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import com.sun.tools.javac.parser.Scanner;
 
 public class UserInterface {
 
@@ -16,10 +15,6 @@ public class UserInterface {
 
 			String say = Info;
 		
-
-		
-		
-
 	        JFrame frame = new JFrame("Vaccination");
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setSize(300 , 300);
@@ -29,25 +24,16 @@ public class UserInterface {
 
 
 	}
-
-	public String AskForString (String question) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println(question);
-		
-		String user = sc.nextLine();		
-		return user;
-	}
-
+	
 
 	
-	public static String AskForString ( ) {
-		return null;
+	public static String AskForString (String question) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(question);
 
-		
-		
-		
-		
-	}
+        String user = sc.nextLine();
+        return user;
+    }
 	
 	public static Date AskForDate ( ) {
 		return null;
@@ -57,10 +43,13 @@ public class UserInterface {
 	}
 	
 	public static int AskForNumber (String question) {
-		return 0;
-		
-		
-		
-	}
+        Scanner sc = new Scanner(System.in);
+        int num = 0;
+        System.out.println(question);
+        num = Integer.parseInt(sc.nextLine());
+        return num;
+    }
 	
 }
+
+
