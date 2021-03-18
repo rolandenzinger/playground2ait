@@ -43,7 +43,7 @@ public class Person {
         System.out.println("Löschen verlief erfolgreich");
     }
 
-    public void listAllPersons(fullname) { //listet alle Personen auf
+    public void listAllPersons(String fullname) { //listet alle Personen auf
         for (int i = 0; i < list.length-1; i++) {
             list[i].add(fullname);
         }
