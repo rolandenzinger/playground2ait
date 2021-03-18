@@ -29,13 +29,13 @@ public class Person {
         this.personID = null;
         this.firstName = null;
         this.lastName = null;
-        this.socialSecurityNumber = null;
+        this.socialSecurityNumber = 0;
         this.street = null;
         this.zip = null;
         this.city = null;
         this.country = null;
         this.birthday = null;
-        this.telephone = null;
+        this.telephone = 0;
         System.out.println("Löschen verlief erfolgreich");
     }
 
