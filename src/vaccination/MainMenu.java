@@ -117,7 +117,31 @@ public static void about() {
 	}
 
 	public void location() {
-
-	}
+		do {
+            switch(UserInterface.AskForString("Gib den Kommand + ein um einen Standort hinzuzufügen.")) {
+            case: "+";
+           
+            addLocation();
+            break;
+            }
+           
+            switch(UserInterface.AskForString("Gib den Kommand - ein um einen Standort zu löschen.")) {
+            case: "-";
+           
+            deleteLocation();
+            break;
+            }
+           
+            switch(UserInterface.AskForString("Gib den Kommand ListAll ein um jeden Standort aufzulisten.")) {
+            case: "ListAll";
+           
+            listAllLocations();
+            break;
+            }
+           
+           
+        } while (!stop);
+       
+    }
 
 }
