@@ -25,16 +25,16 @@ public class Person {
     }
 
     public void deletePerson(String personID) {
-        personID = null;
-        firstName = null;
-        lastName = null;
-        socialSecurityNumber = null;
-        street = null;
-        zip = null;
-        city = null;
-        country = null;
-        birthday = null;
-        telephone = null;
+        this.personID = null;
+        this.firstName = null;
+        this.lastName = null;
+        this.socialSecurityNumber = null;
+        this.street = null;
+        this.zip = null;
+        this.city = null;
+        this.country = null;
+        this.birthday = null;
+        this.telephone = null;
         System.out.println("Löschen verlief erfolgreich");
     }
 
