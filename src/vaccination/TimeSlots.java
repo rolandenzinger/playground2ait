@@ -16,7 +16,7 @@ public class TimeSlots {
 		this.slotEnd = TimeEnd;
 		this.slotDate = date;
 		this.slotIsScheduled = scheduled;
-
+		//test
 		schedules = new String[0];
 	}
 
