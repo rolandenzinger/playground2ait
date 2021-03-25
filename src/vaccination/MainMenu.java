@@ -156,15 +156,19 @@ public static void scedule() {// Terminvergabe	mit 	Petar			Tobi
 	do {
 		switch (UserInterface.AskForString(InterfaceOutput)) {
 		case "ort":
-			//@todo funktionsaufruf
+		GetAllUnscheduledSlotsForStation(saveInt("Geben Sie die Ort-ID an"));
 			break;
 
 		case "zeit":
-			//@todo funktionsaufruf
+		GetAllUnscheduledSlotsForDate(GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an")))
 			break;
 		
-		case "termin":
-			//@todo funktionsaufruf
+		case "buchen":
+		AddScheduledSlotForPerson( int saveInt("Geben Sie die ID der Location an"), int saveInt("Geben Sie die ID der Person an"), int saveInt("Geben Sie die ID des Slots an"));
+			break;
+
+		case "löschen":
+		DeleteScheduledSlotForPerson(int saveInt("Geben Sie die ID des zu löschenden Slots an"));
 			break;
 
 		case "zurück":
