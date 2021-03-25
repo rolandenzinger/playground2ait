@@ -91,7 +91,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		Geben Sie (löschen) um eine Person zu löschen.\n
 		Geben Sie (auflisten) ein um Alle Personen zu listen
 		";
-		
+		String = UserInterface.AskForString(InterfaceOutput);
 		switch (InterfaceInput) {
             case "hinzufügen":
                 personID = UserInterface.AskForString("Please enter PersonID");
@@ -108,12 +108,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 									String country, String birthday, String telephone);
                 break;
             case "entfernen":
-			try {
-				 int ID = Interger.parseInt(UserInterface.AskForString("Bitte Peronen ID eingebn"));
-			} catch (NumberFormatException e) {
-				UserInterface.SaySomething("Not a number");
-			}
-	         Person.deletePerson(ID);
+	         Person.deletePerson(saveInt("geben Sie die Id der zu löschenden Person an"));
                 break;
 			case "auflisten"
 			person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
@@ -154,19 +149,19 @@ public static void scedule() {// Terminvergabe	mit 	Petar			Tobi
 	do {
 		switch (UserInterface.AskForString(InterfaceOutput)) {
 		case "ort":
-		GetAllUnscheduledSlotsForStation(saveInt("Geben Sie die Ort-ID an"));
+		TimeSlots.GetAllUnscheduledSlotsForStation(saveInt("Geben Sie die Ort-ID an"));
 			break;
 
 		case "zeit":
-		GetAllUnscheduledSlotsForDate(GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an")))
+		TimeSlots.GetAllUnscheduledSlotsForDate(GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an")))
 			break;
 		
 		case "buchen":
-		AddScheduledSlotForPerson( int saveInt("Geben Sie die ID der Location an"), int saveInt("Geben Sie die ID der Person an"), int saveInt("Geben Sie die ID des Slots an"));
+		TimeSlots.AddScheduledSlotForPerson( int saveInt("Geben Sie die ID der Location an"), int saveInt("Geben Sie die ID der Person an"), int saveInt("Geben Sie die ID des Slots an"));
 			break;
 
 		case "löschen":
-		DeleteScheduledSlotForPerson(int saveInt("Geben Sie die ID des zu löschenden Slots an"));
+		TimeSlots.DeleteScheduledSlotForPerson(int saveInt("Geben Sie die ID des zu löschenden Slots an"));
 			break;
 
 		case "zurück":
