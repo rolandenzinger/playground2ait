@@ -7,16 +7,17 @@ import org.junit.Test;
 public class TestInterface {
 
 	   @Test public void TestSaySmth() {
-	    	
+	    
+		   
 		   UserInterface.SaySomething("Bye");
 		   
-          //asserEquals(UserInterface.SaySomething("hello"));
-
 
    }
 	   
 	   @Test public void TestAskForString() {
 	    	
+		   UserInterface.AskForString("Write car");
+		   
 		   
 		   
            //asserEquals(UserInterface.SaySomething("hello"));
@@ -27,6 +28,7 @@ public class TestInterface {
 	   @Test public void TestAskForDate() {
 	    	
 		   
+		   UserInterface.AskForDate("Write 10/02/2020");
 		   
 		   //    asserEquals(UserInterface.SaySomething("hello"));
 
@@ -38,9 +40,6 @@ public class TestInterface {
 		   
 		   assertEquals(UserInterface.AskForNumber("Write ten"), 10);
 		   
-		   
-		   //       asserEquals(UserInterface.SaySomething("hello"));
-
 
    }
 	

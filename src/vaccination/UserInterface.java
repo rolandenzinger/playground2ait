@@ -1,6 +1,8 @@
 package vaccination;
 
 import java.awt.Color;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -33,11 +35,24 @@ public class UserInterface {
         return user;
     }
 	
-	public static Date AskForDate ( ) {
-		return null;
+	public static Date AskForDate (String info ) {
+		Date ans = null;
 		
 		
+		Scanner src = new Scanner(System.in);
 		
+		System.out.println(info);
+		
+		String input = src.nextLine();
+		
+		try {
+			ans = new SimpleDateFormat("dd/MM/yyyy").parse(input);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return ans;
 	}
 	
 	public static int AskForNumber (String question) {
