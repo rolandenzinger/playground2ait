@@ -43,12 +43,14 @@ public class UserInterface {
 		
 		System.out.println(info);
 		
-		String input = src.nextLine();
-		
 		try {
+			
+		String input = src.nextLine();
+			
 			ans = new SimpleDateFormat("dd/MM/yyyy").parse(input);
-		} catch (ParseException e) {
-			e.printStackTrace();
+			
+		} catch (ParseException| NumberFormatException e) {
+			
 		}
 		
 		
@@ -56,11 +58,12 @@ public class UserInterface {
 	}
 	
 	public static int AskForNumber (String question) {
+		int num = 0;
         Scanner sc = new Scanner(System.in);
-        int num = 0;
         System.out.println(question);
         num = Integer.parseInt(sc.nextLine());
-        return num;
+
+		return num;
     }
 	
 }
