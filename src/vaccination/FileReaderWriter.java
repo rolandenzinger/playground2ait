@@ -69,17 +69,25 @@ public class FileReaderWriter {
 
 	public String[] ReadAllEntriesWithKey(String key){
 		String line;
-
+		String[] arr = new String[10];
 		int i = 0;
 
 		try {
 			BufferedReader read = new BufferedReader(new FileReader("./Impfung.xlsx"));
 			System.out.println("File read!");
+			if (read.readLine().equalsIgnoreCase(key)) {
+				while(!(read.readLine().isEmpty())){
+					arr[i] = read.readLine();
+					i++;
+				}
+			}
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		return null;
+		return arr;
 	}
 
 	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation){
