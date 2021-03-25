@@ -7,6 +7,8 @@ package vaccination;
 public class MainMenu {
 	public static void main(String[] args) {
 		//@todo klassen speichern und lesen aufrufen
+		//
+		//
 		// Main UI
 		boolean quit = false;
 		String InterfaceOutput = 
@@ -51,6 +53,11 @@ public class MainMenu {
 	}
 
 public static void timeSlot() { //Impfzeitfenster
+	// public TimeSlots(int id, String TimeStart, String TimeEnd, String date, boolean scheduled)
+	// public boolean DeleteUnscheduledSlot(int slotId)
+	// public int AddScheduledSlotForPerson(int locationId, int personId, int slotId)
+	// public boolean DeleteScheduledSlotForPerson(int scheduleId)
+	// public int[] getAllUnscheduledSlotsForStation(int locationId)
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Willkommen bei Impfzeitfenster\n
