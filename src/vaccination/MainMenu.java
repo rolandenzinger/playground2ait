@@ -1,7 +1,5 @@
 package vaccination;
-//collab mit UI:
 
-import jdk.nashorn.internal.runtime.regexp.joni.ast.QuantifierNode;
 
 // String = UserInterface.AskForString(String);
 // void UserInterface.SaySomething();
