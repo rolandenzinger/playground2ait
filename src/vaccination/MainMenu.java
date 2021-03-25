@@ -75,7 +75,7 @@ public static void timeSlot() { //Impfzeitfenster
                 break;
 		} while (!quit);
 	}
-<<<<<<< HEAD
+
 	public static void personal() { //Personenverwaltung
 		boolean quit = false;
 		String InterfaceOutput = 
@@ -106,9 +106,7 @@ public static void timeSlot() { //Impfzeitfenster
                 break;
 		} while (!quit);
 	}
-=======
 public static void about() { //über
->>>>>>> d9349086a82bd52ccc82c0e6a56e0ff9d3856e77
 	//prints the Information for the Programm
 	String output = 
 	"----INFORMATION----\n"+
