@@ -11,7 +11,7 @@ public class Person {
 	private String country;
 	private String birthday;
 	private int telephone;
-	private String[] list = new String[100];
+	private String[] list = new String[1];
 
 	public String addNewPerson(String personID, String firstName, String lastName, int socialSecurityNumber,
 			String street, String zip, String city, String country, String birthday, int telephone) { // fügt eine
@@ -50,6 +50,11 @@ public class Person {
 	}
 
 	public void listAdd(String personID) { // fügt eine Person zur Liste hinzu
+		String[] tmp = new String[list.length + 1];
+		for (int i = 0; i < list.length; i++) {
+			tmp[i] = list[i];
+		}
+		list = tmp;
 		for (int i = 0; i < list.length; i++) {
 			if (list[i] == null) {
 				list[i] = personID;
@@ -59,7 +64,9 @@ public class Person {
 
 	public void listAllPersons() { // listet alle Personen hinzu
 		for (int i = 0; i < list.length; i++) {
-			System.out.println(list[i]);
+			if (list[i] != null) {
+				System.out.println(list[i]);
+			}
 		}
 	}
 
