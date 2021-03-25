@@ -15,7 +15,8 @@ public class Person {
 
 	public String addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,
 			String street, String zip, String city, String country, String birthday, String telephone) { // fügt eine
-																										// person hinzu
+																											// person
+																											// hinzu
 		this.personID = personID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -108,10 +109,6 @@ public class Person {
 
 	public String getTelephone() {
 		return telephone;
-	}
-
-	public String[] getList() {
-		return list;
 	}
 
 }
