@@ -10,12 +10,12 @@ public class MainMenu {
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Welcome to VacManager:\n
-		------------------------
-		Standortverwaltung    [ort]
-		Impf-Zeitfenster      [zeit]
-		Terminvergabe         [termin]
-		Personalverwaltung    [person]
-		Über diese Applikation[über]
+		------------------------\n
+		Standortverwaltung    [ort]\n
+		Impf-Zeitfenster      [zeit]\n
+		Terminvergabe         [termin]\n
+		Personalverwaltung    [person]\n
+		Über diese Applikation[über]\n
 		Beenden               [Beenden]
 		";
 		boolean quit = false; 
@@ -59,8 +59,8 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Willkommen bei Impfzeitfenster\n
-		------------------------
-		Geben Sie (hinzufügen) ein umx ein Freies Impfenster anzulegen.
+		------------------------\n
+		Geben Sie (hinzufügen) ein umx ein Freies Impfenster anzulegen.\n
 		Geben Sie (entfernen) um einen Impfzeitfenster zu löschen.
 		";
 		try {
