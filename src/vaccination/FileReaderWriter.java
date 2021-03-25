@@ -48,29 +48,24 @@ public class FileReaderWriter {
 		
 	
 	
-	public String fileReading(String infoBlock, int key, int id) {
+	public String fileReading(String key, int id) {
 		
 		//Elias
-
-		//Das ist ein Test
-		
-		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
-   		return infoBlock;
-	
-	
 		
 		
-	}
-	public boolean DeleteEntry(String key, int id){
-
-		return true;
+		
 	}
 	public String[] ReadAllEntriesWithKey(String key){
 		String[] arr = new String[8];
 
 		return arr;
+
   	}
 	public String GetInfoFromBlock(String infoblock, int IndexOfRequestedInformation){
+
+	}
+	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation){
+
 		String info = null;
 
 		return info;
