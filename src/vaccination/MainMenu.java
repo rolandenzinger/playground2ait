@@ -54,7 +54,8 @@ public class MainMenu {
 		} while (!quit);
 	}
 
-public static void timeSlot() { //Impfzeitfenster
+public static void timeSlot() { //Impfzeitfenster							Klemens
+
 	// public TimeSlots(int id, String TimeStart, String TimeEnd, String date, boolean scheduled)
 	// public boolean DeleteUnscheduledSlot(int slotId)
 	// public int AddScheduledSlotForPerson(int locationId, int personId, int slotId)
@@ -85,7 +86,7 @@ public static void timeSlot() { //Impfzeitfenster
 		} while (!quit);
 	}
 
-	public static void personal() { //Personenverwaltung
+	public static void personal() { //Personenverwaltung 					Klemens
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Willkommen bei Personenverwaltung\n
@@ -97,8 +98,25 @@ public static void timeSlot() { //Impfzeitfenster
 		
 		switch (InterfaceInput) {
             case "hinzufügen":
-
-			UserInterface.SaySomething("Person angelegt*");
+ 				System.out.println("Please enter first Name");
+                fistName = sc.nextLine();
+                System.out.println("Please enter last Name");
+                lastName = sc.nextLine();
+                System.out.println("Please enter Social Security number");
+                socialnr = Integer.parseInt(sc.nextLine());
+                System.out.println("Please enter street");
+                street = sc.nextLine();
+                System.out.println("Please enter ZIP");
+                ZIP = Integer.parseInt(sc.nextLine());
+                System.out.println("Please enter City");
+                City = sc.nextLine();
+                System.out.println("Please enter Country");
+                Country = sc.nextLine();
+                System.out.println("Please enter Birthday");
+                Birthday = sc.nextLine();
+                System.out.println("Please enter telephone number");
+                telephone = Integer.parseInt(sc.nextLine());
+                Person.addNewPerson(fistName, lastName, socialnr, street, ZIP, City, Country, Birthday, telephone);
                 break;
             case "entfernen":
 			try {
@@ -114,7 +132,7 @@ public static void timeSlot() { //Impfzeitfenster
 			UserInterface.SaySomething("Falsche Eingabe");
                 break;
 		} while (!quit);
-	}
+	}	
 public static void about() { //über
 	//prints the Information for the Programm
 	String output = 
@@ -127,7 +145,7 @@ public static void about() { //über
 
 }
 
-public static void scedule() {// Terminvergabe
+public static void scedule() {// Terminvergabe							Tobi
 	boolean quit = false;
 	String InterfaceOutput = 
 	"Welcome to Terminvergabe:\n
@@ -161,7 +179,7 @@ public static void scedule() {// Terminvergabe
 	} while (!quit);
 }
 
-public void location() { //Standortverwaltung
+public void location() { //Standortverwaltung							Tobi
 	boolean quit = false;
 		String InterfaceOutput = 
 		"Welcome to Standortverwaltung:\n
