@@ -1,5 +1,6 @@
 package vaccination;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
@@ -33,6 +34,13 @@ class TestFileReaderWriter {
 		 String info10 = "Männlich";
 		FileReaderWriter test = new FileReaderWriter(key,id,info1,info2,info3,info4,info5,info6,info7,info8,info9,info10);
 		test.fileWriting(test);
+		String readingResult = "";
+		readingResult = test.fileReading(key, id);
+		String fieldResult = "";
+		fieldResult =test.GetInfoFromBlock(readingResult, 3);
+		
+		assertEquals(readingResult,info1);
+		
 		
 		
 		
