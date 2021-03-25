@@ -54,7 +54,7 @@ public class MainMenu {
 		} while (!quit);
 	}
 
-public static void timeSlot() { //Impfzeitfenster							Klemens
+public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 
 	// public TimeSlots(int id, String TimeStart, String TimeEnd, String date, boolean scheduled)
 	// public boolean DeleteUnscheduledSlot(int slotId)
@@ -86,7 +86,7 @@ public static void timeSlot() { //Impfzeitfenster							Klemens
 		} while (!quit);
 	}
 
-	public static void personal() { //Personenverwaltung 					Klemens
+	public static void personal() { //Personenverwaltung 	mit fabi				Klemens
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Willkommen bei Personenverwaltung\n
@@ -138,7 +138,7 @@ public static void about() { //über
 
 }
 
-public static void scedule() {// Terminvergabe							Tobi
+public static void scedule() {// Terminvergabe	mit 						Tobi
 	boolean quit = false;
 	String InterfaceOutput = 
 	"Welcome to Terminvergabe:\n
@@ -172,7 +172,7 @@ public static void scedule() {// Terminvergabe							Tobi
 	} while (!quit);
 }
 
-public void location() { //Standortverwaltung							Tobi
+public void location() { //Standortverwaltung		mit Schupp					Tobi
 	boolean quit = false;
 		String InterfaceOutput = 
 		"Welcome to Standortverwaltung:\n
