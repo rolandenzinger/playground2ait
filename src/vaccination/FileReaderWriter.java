@@ -2,8 +2,14 @@ package vaccination;
 
 import javax.management.relation.RoleInfoNotFoundException;
 import java.io.*;
+import java.util.Scanner;
+
+
 
 public class FileReaderWriter {
+	
+	public static Scanner scanner = new Scanner(System.in);
+	
 	private String key;
 	private int id;
 	private String info1;
@@ -86,7 +92,7 @@ public class FileReaderWriter {
 			String currentLine = sc.nextLine();
 			String[] splittedInfos = currentLine.split(";");
 			if((splittedInfos[0] == key) && (Integer.parseInt(splittedInfos[1]) == id)) {
-				
+				System.out.println(currentLine);
 				return currentLine;
 				exit = false;
 			}
