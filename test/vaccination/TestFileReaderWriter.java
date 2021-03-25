@@ -37,9 +37,9 @@ class TestFileReaderWriter {
 		String readingResult = "";
 		readingResult = test.fileReading(key, id);
 		String fieldResult = "";
-		fieldResult =test.GetInfoFromBlock(readingResult, 3);
+		fieldResult =test.GetInfoFromBlock(readingResult, 1);
 		
-		assertEquals(readingResult,info1);
+		assertEquals(readingResult,fieldResult);
 		
 		
 		
