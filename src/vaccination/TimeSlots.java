@@ -73,17 +73,21 @@ public class TimeSlots {
 
 	public boolean DeleteScheduledSlotForPerson(int scheduleId) {
 		String[] tmp;
+		String reconstructedSchedule = "";
 		for (int i = 0; i < schedules.length; i++) {
 			tmp = schedules[i].split(";");
 			if (Integer.parseInt(tmp[0]) == scheduleId) {
 				tmp[2] = "---";
 			}
-			
+			for (int j = 0; j < tmp.length; j++) {
+				reconstructedSchedule += tmp[j];
+			}
+			schedules[i] = reconstructedSchedule;
 		}
 		return true;
 	}
 
-	public int[] getAllUnscheduledSlotsForStation(int locationId) {
+	public int[] GetAllUnscheduledSlotsForStation(int locationId) {
 		String[] schedule;
 		int i = 0;
 		int[] unscheduledSlots = new int[0];
