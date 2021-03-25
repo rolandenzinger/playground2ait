@@ -60,6 +60,8 @@ public class FileReaderWriter {
 
 
 	public String fileReading(String key, int id) {
+		
+		boolean exit = true;
 
 		//Elias
 		//BufferedReader reader = new BufferedReader(new FileReader("Impfstoff"), true);
@@ -69,13 +71,32 @@ public class FileReaderWriter {
 
 		
 		
-//		file.when(key)
+//		Impfstoff.when(key)
 //			when(id)
 //				return allInfos
 		
-//		for(int col = 0; input == key; col++) {
-//			
-//		}
+		
+		//ist noch nicht fertig!
+		
+		
+		
+		//Infos einlesen
+		for(int i = 0; exit; i++) {
+			String currentLine = sc.nextLine();
+			String[] splittedInfos = currentLine.split(";");
+			if((splittedInfos[0] == key) && (Integer.parseInt(splittedInfos[1]) == id)) {
+				
+				return currentLine;
+				exit = false;
+			}
+		}
+		
+						
+		return "Fehler";
+			
+			
+		
+		
 		
 		
 		/*
