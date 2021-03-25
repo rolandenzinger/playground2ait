@@ -75,8 +75,6 @@ public class FileReaderWriter {
 		
 		try (Scanner sc = new Scanner(file)) {
 		
-		} catch (FileNotFoundException ex) {
-			
 			do {
 
 				String currentLine = scanner.nextLine();
@@ -88,6 +86,10 @@ public class FileReaderWriter {
 
 				}
 			} while (exit);
+			
+		} catch (FileNotFoundException ex) {
+			
+			
 		}
 		
 		return "Fehler";
@@ -118,8 +120,10 @@ public class FileReaderWriter {
 	}
 
 	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation) {
-
 		String info = null;
+		String[] arr = new String[12];
+		arr = infoBlock.split(";");
+		info = arr[IndexOfRequestedInformation];
 		return info;
 	}
 
