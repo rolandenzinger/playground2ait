@@ -108,7 +108,7 @@ public class FileReaderWriter {
 		int i = 0;
 
 		try {
-			BufferedReader read = new BufferedReader(new FileReader("./Impfung.xlsx"));
+			BufferedReader read = new BufferedReader(new FileReader("./Impfung.csv"));
 			System.out.println("File read!");
 			if (read.readLine().equalsIgnoreCase(key)) {
 				while(!(read.readLine().isEmpty())){
