@@ -63,7 +63,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		"Willkommen bei Impfzeitfenster\n
 		------------------------
 		Geben Sie (hinzufügen) ein um ein Freies Impfenster anzulegen.
-		Geben Sie (entfernen) um einpackage vaccination
+		Geben Sie (entfernen) um einen Impfzeitfenster zu löschen
 		";
 		try {
             userInput = Integer.parseInt(sc.nextLine());
