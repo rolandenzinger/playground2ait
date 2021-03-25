@@ -26,8 +26,7 @@ public class Person {
 		this.country = country;
 		this.birthday = birthday;
 		this.telephone = telephone;
-		String fullName = lastName + " " + firstName;
-		listCreate(fullName);
+		listAdd(personID);
 		return personID;
 	}
 
@@ -50,17 +49,16 @@ public class Person {
 		System.out.println("Löschen verlief erfolgreich");
 	}
 
-	public void listCreate(String fullname) { // listet alle Personen auf
+	public void listAdd(String personID) { // fügt eine Person zur Liste hinzu
 		for (int i = 0; i < list.length; i++) {
 			if (list[i] == null) {
-				list[i] = fullname;
+				list[i] = personID;
 			}
 		}
-
 	}
 
-	public void listAllPersons() {
-		for (int i = 0; i < list.length - 1; i++) {
+	public void listAllPersons() { // listet alle Personen hinzu
+		for (int i = 0; i < list.length; i++) {
 			System.out.println(list[i]);
 		}
 	}
