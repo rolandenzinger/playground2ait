@@ -4,17 +4,17 @@ public class Person {
 	private String personID;
 	private String firstName;
 	private String lastName;
-	private int socialSecurityNumber;
+	private String socialSecurityNumber;
 	private String street;
 	private String zip;
 	private String city;
 	private String country;
 	private String birthday;
-	private int telephone;
+	private String telephone;
 	private String[] list = new String[1];
 
-	public String addNewPerson(String personID, String firstName, String lastName, int socialSecurityNumber,
-			String street, String zip, String city, String country, String birthday, int telephone) { // fügt eine
+	public String addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,
+			String street, String zip, String city, String country, String birthday, String telephone) { // fügt eine
 																										// person hinzu
 		this.personID = personID;
 		this.firstName = firstName;
@@ -39,13 +39,13 @@ public class Person {
 		this.personID = null;
 		this.firstName = null;
 		this.lastName = null;
-		this.socialSecurityNumber = 0;
+		this.socialSecurityNumber = null;
 		this.street = null;
 		this.zip = null;
 		this.city = null;
 		this.country = null;
 		this.birthday = null;
-		this.telephone = 0;
+		this.telephone = null;
 		System.out.println("Löschen verlief erfolgreich");
 	}
 
