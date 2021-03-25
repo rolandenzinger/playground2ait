@@ -4,12 +4,10 @@ import javax.management.relation.RoleInfoNotFoundException;
 import java.io.*;
 import java.util.Scanner;
 
-
-
 public class FileReaderWriter {
-	
+
 	public static Scanner scanner = new Scanner(System.in);
-	
+
 	private String key;
 	private int id;
 	private String info1;
@@ -23,7 +21,8 @@ public class FileReaderWriter {
 	private String info9;
 	private String info10;
 
-	FileReaderWriter(String key, int id , String info1, String info2,String info3,String info4,String info5,String info6,String info7,String info8,String info9,String info10){
+	FileReaderWriter(String key, int id, String info1, String info2, String info3, String info4, String info5,
+			String info6, String info7, String info8, String info9, String info10) {
 		this.key = key;
 		this.id = id;
 		this.info1 = info1;
@@ -41,96 +40,50 @@ public class FileReaderWriter {
 
 	public void fileWriting(String infoBlock)
 
-			 throws IOException {
-				 String idstring = String.valueOf(id);
+			throws IOException {
+		String idstring = String.valueOf(id);
 
-	    BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
-	    writer.append(idstring);
-	    writer.append(key);
-	    writer.append(info1);
-	    writer.append(info2);
-	    writer.append(info3);
-	    writer.append(info4);
-	    writer.append(info5);
-	    writer.append(info6);
-	    writer.append(info7);
-	    writer.append(info8);
-	    writer.append(info9);
-	    writer.append(info10);
+		BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
+		writer.append(idstring);
+		writer.append(key);
+		writer.append(info1);
+		writer.append(info2);
+		writer.append(info3);
+		writer.append(info4);
+		writer.append(info5);
+		writer.append(info6);
+		writer.append(info7);
+		writer.append(info8);
+		writer.append(info9);
+		writer.append(info10);
 
-
-	    writer.close();
+		writer.close();
 	}
-
-
-
-
 
 	public String fileReading(String key, int id) {
-		
+
 		boolean exit = true;
 
-		//Elias
-		//BufferedReader reader = new BufferedReader(new FileReader("Impfstoff"), true);
-		
+		// Elias
 
-		
+		// Infos einlesen
+		do {
 
-		
-		
-//		Impfstoff.when(key)
-//			when(id)
-//				return allInfos
-		
-		
-		//ist noch nicht fertig!
-		
-		
-		
-		//Infos einlesen
-		for(int i = 0; exit; i++) {
-			String currentLine = sc.nextLine();
+			String currentLine = scanner.nextLine();
 			String[] splittedInfos = currentLine.split(";");
-			if((splittedInfos[0] == key) && (Integer.parseInt(splittedInfos[1]) == id)) {
+			if ((splittedInfos[0] == key) && (Integer.parseInt(splittedInfos[1]) == id)) {
 				System.out.println(currentLine);
-				return currentLine;
 				exit = false;
-			}
-		}
-		
-						
-		return "Fehler";
-			
-			
-		
-		
-		
-		
-		/*
-		String[] europa = new String[632];
-		File txtFile = new File(filePath);
+				return currentLine;
 
-		try (Scanner scfile = new Scanner(txtFile)) {
-			int index = 0;
-			while (scfile.hasNext()) {
-				String tmp = scfile.nextLine();
-				europa[index] = tmp;
-				index++;
 			}
-		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();
-//			return -1;
-		}
-		for (int i = 0; i < europa.length; i++) {
-//			System.out.println(europa[i]);
-		}
-		return europa;
-	
-		
-		*/
+		} while (exit);
+
+		return "Fehler";
+
 	}
 
-	public String[] ReadAllEntriesWithKey(String key){
+	public String[] ReadAllEntriesWithKey(String key) {
 		String line;
 		String[] arr = new String[10];
 		int i = 0;
@@ -139,7 +92,7 @@ public class FileReaderWriter {
 			BufferedReader read = new BufferedReader(new FileReader("./Impfung.xlsx"));
 			System.out.println("File read!");
 			if (read.readLine().equalsIgnoreCase(key)) {
-				while(!(read.readLine().isEmpty())){
+				while (!(read.readLine().isEmpty())) {
 					arr[i] = read.readLine();
 					i++;
 				}
@@ -153,8 +106,7 @@ public class FileReaderWriter {
 		return arr;
 	}
 
-	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation){
-
+	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation) {
 
 		String info = null;
 		return info;
