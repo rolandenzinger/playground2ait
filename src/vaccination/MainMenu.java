@@ -75,6 +75,7 @@ public static void timeSlot() { //Impfzeitfenster
                 break;
 		} while (!quit);
 	}
+<<<<<<< HEAD
 	public static void personal() { //Personenverwaltung
 		boolean quit = false;
 		String InterfaceOutput = 
@@ -105,7 +106,9 @@ public static void timeSlot() { //Impfzeitfenster
                 break;
 		} while (!quit);
 	}
-public static void about() {
+=======
+public static void about() { //über
+>>>>>>> d9349086a82bd52ccc82c0e6a56e0ff9d3856e77
 	//prints the Information for the Programm
 	String output = 
 	"----INFORMATION----\n"+
@@ -152,7 +155,36 @@ public static void scedule() {// Terminvergabe
 }
 
 public void location() { //Standortverwaltung
-	
+	boolean quit = false;
+		String InterfaceOutput = 
+		"Welcome to Standortverwaltung:\n
+		------------------------
+		Standort hinzufügen     [dazu]
+		Standort löschen      	[löschen]
+		Standorte auflisten		[liste]
+		zurück                  [zurück]
+		";
+		boolean quit = false; 
+		do {
+			switch (UserInterface.AskForString(InterfaceOutput)) {
+			case "ort":
+				//@todo funktionsaufruf
+				break;
+
+			case "löschen":
+				//@todo funktionsaufruf
+				break;
+
+			case "liste":
+				//@todo funktionsaufruf
+				break;
+			
+			case "zurück":
+				quit = true; 
+			default:
+			UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
+			}
+		} while (!quit);
 }
 }
 }
