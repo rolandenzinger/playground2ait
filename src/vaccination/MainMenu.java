@@ -55,23 +55,23 @@ public static void timeSlot() { //Impfzeitfenster
 		String InterfaceOutput = 
 		"Willkommen bei Impfzeitfenster\n
 		------------------------
-		Geben Sie (1) ein um ein Freies Impfenster anzulegen.
-		Geben Sie (2) um einpackage vaccination
+		Geben Sie (hinzufügen) ein um ein Freies Impfenster anzulegen.
+		Geben Sie (entfernen) um einpackage vaccination
 		";
 		try {
             userInput = Integer.parseInt(sc.nextLine());
         } catch (NumberFormatException e) {
             UserInterface.SaySomething("Bitte geben Sie eine Zahl ein.");
         }
-		switch (InterfaceOutput) {s
-            case 1:
-                System.out.println("*Freies Impf-Zeitfenster angelegt*");
+		switch (InterfaceOutput) {
+            case "hinzufügen":
+			UserInterface.SaySomething("*Freies Impf-Zeitfenster angelegt*");
                 break;
-            case 2:
-                System.out.println("*Ungebuchtes Impf-Zeitfenster gelöscht*");
+            case "entfernen":
+			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
                 break;
             default:
-                System.out.println("Falsche Nummer");
+			UserInterface.SaySomething("Falsche Eingabe");
                 break;
 		} while (!quit);
 	}
