@@ -191,15 +191,15 @@ public void location() { //Standortverwaltung mit Location
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
-				//@todo funktionsaufruf
+			addLocation(String UserInterface.AskForString("geben Sie den Namen an"), String UserInterface.AskForString("geben Sie die Straße an"), String UserInterface.AskForString("geben Sie den Zip code an"), String UserInterface.AskForString("geben Sie die Stadt"), String UserInterface.AskForString("geben Sie die Stadt an"));
 				break;
 
 			case "löschen":
-				//@todo funktionsaufruf
+			deleteLocation(int saveInt("geben Sie die ID der Location an"))
 				break;
 
 			case "liste":
-				//@todo funktionsaufruf
+				listAllLocation();
 				break;
 			
 			case "zurück":
