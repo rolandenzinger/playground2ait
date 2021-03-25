@@ -1,6 +1,8 @@
 package vaccination;
 //collab mit UI:
 
+import jdk.nashorn.internal.runtime.regexp.joni.ast.QuantifierNode;
+
 // String = UserInterface.AskForString(String);
 // void UserInterface.SaySomething();
 
@@ -87,24 +89,24 @@ public static void timeSlot() { //Impfzeitfenster
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Willkommen bei Personenverwaltung\n
-		------------------------
-		Geben Sie (anlegem) um eine neue Person anzulegen.
-		Geben Sie (löschen) um eine Person zu löschen.
+		------------------------\n
+		Geben Sie (anlegem) um eine neue Person anzulegen.\n
+		Geben Sie (löschen) um eine Person zu löschen.\n
 		Geben Sie (auflisten) ein um Alle Personen zu listen
 		";
-		try {
-            userInput = Integer.parseInt(sc.nextLine());
-        } catch (NumberFormatException e) {
-            UserInterface.SaySomething("Bitte geben Sie ein Wort ein.");
-        }
-		switch (InterfaceOutput) {
+		
+		switch (InterfaceInput) {
             case "hinzufügen":
+
 			UserInterface.SaySomething("Person angelegt*");
                 break;
             case "entfernen":
-			UserInterface.SaySomething("Bitte Peronen ID eingebn");
-                ID = Integer.parseInt(sc.nextLine());
-                Person.deletePerson(ID);
+			try {
+				 int ID = Interger.parseInt(UserInterface.AskForString("Bitte Peronen ID eingebn"));
+			} catch (NumberFormatException e) {
+				UserInterface.SaySomething("Not a number")
+			}
+	         Person.deletePerson(ID);
                 break;
 			case "auflisten"
 			Person.listAllPersons();
@@ -191,5 +193,12 @@ public void location() { //Standortverwaltung
 			}
 		} while (!quit);
 }
+}
+public public static int saveInt() {
+	boolean quit = false; 
+	do{
+		String = UserInterface.AskForString(String);
+	}while(quit);
+	
 }
 }
