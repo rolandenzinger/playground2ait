@@ -35,19 +35,20 @@ public class Person {
 		for (int i = 0; i < list.length; i++) {
 			if (list[i].equals(personID)) {
 				list[i] = null;
+				i = list.length + 1;
 			}
 		}
-		this.personID = null;
-		this.firstName = null;
-		this.lastName = null;
-		this.socialSecurityNumber = null;
-		this.street = null;
-		this.zip = null;
-		this.city = null;
-		this.country = null;
-		this.birthday = null;
-		this.telephone = null;
-		System.out.println("Löschen verlief erfolgreich");
+//		this.personID = null;
+//		this.firstName = null;
+//		this.lastName = null;
+//		this.socialSecurityNumber = null;
+//		this.street = null;
+//		this.zip = null;
+//		this.city = null;
+//		this.country = null;
+//		this.birthday = null;
+//		this.telephone = null;
+//		System.out.println("Löschen verlief erfolgreich");
 	}
 
 	public void listAdd(String personID) { // fügt eine Person zur Liste hinzu
@@ -55,10 +56,14 @@ public class Person {
 		for (int i = 0; i < list.length; i++) {
 			tmp[i] = list[i];
 		}
-		list = tmp;
+		list = new String[tmp.length];
+		for(int i = 0; i < tmp.length; i++) {
+			list[i] = tmp[i];
+		}
 		for (int i = 0; i < list.length; i++) {
 			if (list[i] == null) {
 				list[i] = personID;
+				i = list.length + 1;
 			}
 		}
 	}
