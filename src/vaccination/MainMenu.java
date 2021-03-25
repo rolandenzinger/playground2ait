@@ -63,7 +63,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		"Willkommen bei Impfzeitfenster\n
 		------------------------
 		Geben Sie (hinzufügen) ein um ein Freies Impfenster anzulegen.
-		Geben Sie (entfernen) um einpackage vaccination
+		Geben Sie (entfernen) um einen Impfzeitfenster zu löschen
 		";
 		try {
             userInput = Integer.parseInt(sc.nextLine());
@@ -72,7 +72,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
         }
 		switch (InterfaceOutput) {
             case "hinzufügen":
-			AddNewSlot(int locationId, String date, String timeStart, String timeEnd);
+			AddScheduledSlotForPerson(int locationId, int personId, int slotId);
                 break;
             case "entfernen":
 			DeleteUnscheduledSlot(int slotId, boolean slotIsScheduled) --- löscht der Termin weg
@@ -84,7 +84,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		} while (!quit);
 	}
 
-	public static void personal() { //Personenverwaltung 	mit fabi			 	Klemens
+	public static void personal() { //Personenverwaltung 	mit Fabi			 	Klemens
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Willkommen bei Personenverwaltung\n
@@ -118,7 +118,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 	         Person.deletePerson(ID);
                 break;
 			case "auflisten"
-			Person.listAllPersons();
+			person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
             default:
 			UserInterface.SaySomething("Falsche Eingabe");
                 break;
