@@ -118,8 +118,10 @@ public class FileReaderWriter {
 	}
 
 	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation) {
-
 		String info = null;
+		String[] arr = new String[12];
+		arr = infoBlock.split(";");
+		info = arr[IndexOfRequestedInformation];
 		return info;
 	}
 
