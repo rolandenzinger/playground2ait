@@ -52,6 +52,7 @@ public class TimeSlots {
 			if (Integer.parseInt(tmp[0]) == slotId && tmp[6].equals("false")) {
 				tmp[1] = String.valueOf(locationId);
 				tmp[2] = String.valueOf(personId);
+				tmp[6] = "true";
 				scheduleId = Integer.parseInt(tmp[0]);
 			}
 			
@@ -70,6 +71,7 @@ public class TimeSlots {
 			tmp = schedules[i].split(";");
 			if (Integer.parseInt(tmp[0]) == scheduleId) {
 				tmp[2] = "---";
+				tmp[6] = "false";
 			}
 			for (int j = 0; j < tmp.length; j++) {
 				reconstructedSchedule += tmp[j];
