@@ -1,20 +1,8 @@
 package vaccination;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.BufferedReader;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-
-
+import java.io.*;
 
 public class FileReaderWriter {
-	
-	public static Scanner sc = new Scanner(System.in);
-	
 	private String key;
 	private int id;
 	private String info1;
@@ -27,7 +15,7 @@ public class FileReaderWriter {
 	private String info8;
 	private String info9;
 	private String info10;
-	
+
 	FileReaderWriter(String key, int id , String info1, String info2,String info3,String info4,String info5,String info6,String info7,String info8,String info9,String info10){
 		this.key = key;
 		this.id = id;
@@ -41,25 +29,38 @@ public class FileReaderWriter {
 		this.info8 = info8;
 		this.info9 = info9;
 		this.info10 = info10;
-		
+
 	}
-	
-	public void fileWriting(String infoBlock) 
+
+	public void fileWriting(String infoBlock)
+
 			 throws IOException {
-	    
+				 String idstring = String.valueOf(id);
+
 	    BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
-	    writer.append(' ');
-	    writer.append(infoBlock);
-	    
+	    writer.append(idstring);
+	    writer.append(key);
+	    writer.append(info1);
+	    writer.append(info2);
+	    writer.append(info3);
+	    writer.append(info4);
+	    writer.append(info5);
+	    writer.append(info6);
+	    writer.append(info7);
+	    writer.append(info8);
+	    writer.append(info9);
+	    writer.append(info10);
+
+
 	    writer.close();
 	}
-		
-		
-		
-	
-	
+
+
+
+
+
 	public String fileReading(String key, int id) {
-		
+
 		//Elias
 		//BufferedReader reader = new BufferedReader(new FileReader("Impfstoff"), true);
 		
@@ -100,14 +101,34 @@ public class FileReaderWriter {
 		
 		*/
 	}
+
 	public String[] ReadAllEntriesWithKey(String key){
-		String[] arr = new String[8];
+		String line;
+		String[] arr = new String[10];
+		int i = 0;
+
+		try {
+			BufferedReader read = new BufferedReader(new FileReader("./Impfung.xlsx"));
+			System.out.println("File read!");
+			if (read.readLine().equalsIgnoreCase(key)) {
+				while(!(read.readLine().isEmpty())){
+					arr[i] = read.readLine();
+					i++;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return arr;
 	}
-	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation){
-		String info = null;
 
+	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation){
+
+
+		String info = null;
 		return info;
 	}
 
