@@ -11,6 +11,7 @@ class PersonTest {
 		Person one = new Person();
 		assertEquals("556363", one.addNewPerson("556363", "Max", "Mustermann", "12345", "Straße", "1234", "Stadt",
 				"Land", "12.34.5678", "12345678"));
+		one.listAllPersons();
 		assertEquals("556363", one.getPersonID());
 		assertEquals("Max", one.getFirstName());
 		assertEquals("Mustermann", one.getLastName());
@@ -26,8 +27,8 @@ class PersonTest {
 				"Land", "12.34.5678", "12345678"));
 		assertEquals("556365", one.addNewPerson("556365", "Max", "Mustermann", "123452", "Straße", "1234", "Stadt",
 				"Land", "12.34.5678", "12345678"));
-		one.listAllPersons();
 		one.deletePerson("556365");
+		one.listAllPersons();
 	}
 
 }
