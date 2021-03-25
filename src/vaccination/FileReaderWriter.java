@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileReaderWriter {
-	private int key;
+	private String key;
 	private int id;
 	private String info1;
 	private String info2;
@@ -18,7 +18,7 @@ public class FileReaderWriter {
 	private String info9;
 	private String info10;
 	
-	FileReaderWriter(int key, int id , String info1, String info2,String info3,String info4,String info5,String info6,String info7,String info8,String info9,String info10){
+	FileReaderWriter(String key, int id , String info1, String info2,String info3,String info4,String info5,String info6,String info7,String info8,String info9,String info10){
 		this.key = key;
 		this.id = id;
 		this.info1 = info1;
@@ -35,11 +35,24 @@ public class FileReaderWriter {
 	}
 	
 	public void fileWriting(String infoBlock) 
+	
 			 throws IOException {
+				 String idstring = String.valueOf(id);
 	    
 	    BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
-	    writer.append(' ');
-	    writer.append(infoBlock);
+	    writer.append(idstring);
+	    writer.append(key);
+	    writer.append(info1);
+	    writer.append(info2);
+	    writer.append(info3);
+	    writer.append(info4);
+	    writer.append(info5);
+	    writer.append(info6);
+	    writer.append(info7);
+	    writer.append(info8);
+	    writer.append(info9);
+	    writer.append(info10);
+	    
 	    
 	    writer.close();
 	}
