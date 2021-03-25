@@ -217,4 +217,17 @@ public public static int saveInt(String Outup) {
 	}while(quit);
 	
 }
+public static boolean saveBoolean(String Output){
+	do{
+		String preBool = UserInterface.AskForString(Output)
+		if (preBool.equalsIgnoreCase("wahr")){
+			return true; 
+		} else if(preBool.equalsIgnoreCase("falsch")){
+			return false;	
+		}else{
+			UserInterface.SaySomething("Geben sie wahr oder falsch an");
+		}
+
+	}while(true);
+}
 }
