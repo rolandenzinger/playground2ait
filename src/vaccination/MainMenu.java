@@ -48,6 +48,7 @@ public class MainMenu {
 			}
 		} while (!quit);
 	}
+}
 
 public static void timeSlot() { //Impfzeitfenster mit TimeSlot
 	// public TimeSlots(int id, String TimeStart, String TimeEnd, String date, boolean scheduled)
@@ -65,7 +66,7 @@ public static void timeSlot() { //Impfzeitfenster mit TimeSlot
 		try {
             userInput = Integer.parseInt(sc.nextLine());
         } catch (NumberFormatException e) {
-            UserInterface.SaySomething("Bitte geben Sie ein Wort ein.");
+            UserInterface.SaySomething("Bitte geben sie hinzufügen oder entfernen ein.");
         }
 		switch (InterfaceOutput) {
             case "hinzufügen":
@@ -75,7 +76,9 @@ public static void timeSlot() { //Impfzeitfenster mit TimeSlot
 			DeleteUnscheduledSlot(int saveInt("Geben sie die SlotID ein"), boolean saveBoolean("geben Sie war oder falsch für löschen an")) --- löscht der Termin weg
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
                 break;
-            default:
+				case "zurück":
+			quit = true; 
+			default:
 			UserInterface.SaySomething("Falsche Eingabe");
                 break;
 		} while (!quit);
