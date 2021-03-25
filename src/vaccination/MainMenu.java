@@ -68,7 +68,7 @@ public static void timeSlot() { //Impfzeitfenster
 		try {
             userInput = Integer.parseInt(sc.nextLine());
         } catch (NumberFormatException e) {
-            UserInterface.SaySomething("Bitte geben Sie eine Zahl ein.");
+            UserInterface.SaySomething("Bitte geben Sie ein Wort ein.");
         }
 		switch (InterfaceOutput) {
             case "hinzufügen":
@@ -77,6 +77,37 @@ public static void timeSlot() { //Impfzeitfenster
             case "entfernen":
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
                 break;
+            default:
+			UserInterface.SaySomething("Falsche Eingabe");
+                break;
+		} while (!quit);
+	}
+
+	public static void personal() { //Personenverwaltung
+		boolean quit = false;
+		String InterfaceOutput = 
+		"Willkommen bei Personenverwaltung\n
+		------------------------
+		Geben Sie (anlegem) um eine neue Person anzulegen.
+		Geben Sie (löschen) um eine Person zu löschen.
+		Geben Sie (auflisten) ein um Alle Personen zu listen
+		";
+		try {
+            userInput = Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            UserInterface.SaySomething("Bitte geben Sie ein Wort ein.");
+        }
+		switch (InterfaceOutput) {
+            case "hinzufügen":
+			UserInterface.SaySomething("Person angelegt*");
+                break;
+            case "entfernen":
+			UserInterface.SaySomething("Bitte Peronen ID eingebn");
+                ID = Integer.parseInt(sc.nextLine());
+                Person.deletePerson(ID);
+                break;
+			case "auflisten"
+			Person.listAllPersons();
             default:
 			UserInterface.SaySomething("Falsche Eingabe");
                 break;
