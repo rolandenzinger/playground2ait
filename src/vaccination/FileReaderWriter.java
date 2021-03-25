@@ -48,10 +48,9 @@ public class FileReaderWriter {
 		
 	
 	
-	public String fileReading(int key, int id) {
+	public String fileReading(String key, int id) {
 		
 		//Elias
-
 		
 		
 		
