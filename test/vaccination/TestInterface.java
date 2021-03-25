@@ -26,6 +26,8 @@ public class TestInterface {
 	   @Test public void TestAskForDate() throws ParseException {
 	    			   
 			assertEquals(UserInterface.AskForDate("Write 10/02/2020"), new SimpleDateFormat("dd/MM/yyyy").parse("10/02/2020"));
+			assertEquals(UserInterface.AskForDate("Write asd and then 10/02/2020 "), new SimpleDateFormat("dd/MM/yyyy").parse("10/02/2020"));
+
 
    }
 	   
