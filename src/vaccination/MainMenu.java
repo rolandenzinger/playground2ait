@@ -8,9 +8,6 @@ import jdk.nashorn.internal.runtime.regexp.joni.ast.QuantifierNode;
 
 public class MainMenu {
 	public static void main(String[] args) {
-		//@todo klassen speichern und lesen aufrufen
-		//
-		//
 		// Main UI
 		boolean quit = false;
 		String InterfaceOutput = 
@@ -148,7 +145,7 @@ public static void about() { //über
 
 }
 
-public static void scedule() {// Terminvergabe	mit 						Tobi
+public static void scedule() {// Terminvergabe	mit 	Petar			Tobi
 	boolean quit = false;
 	String InterfaceOutput = 
 	"Welcome to Terminvergabe:\n
@@ -160,6 +157,11 @@ public static void scedule() {// Terminvergabe	mit 						Tobi
 	zurück                                 [zurück]
 	";
 	boolean quit = false; 
+// public TimeSlots(int id, String TimeStart, String TimeEnd, String date, boolean scheduled)
+// public boolean DeleteUnscheduledSlot(int slotId)
+// public int AddScheduledSlotForPerson(int locationId, int personId, int slotId)
+// public boolean DeleteScheduledSlotForPerson(int scheduleId)
+// public int[] getAllUnscheduledSlotsForStation(int locationId)
 	do {
 		switch (UserInterface.AskForString(InterfaceOutput)) {
 		case "ort":
