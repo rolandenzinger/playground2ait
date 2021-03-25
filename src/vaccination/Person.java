@@ -70,4 +70,48 @@ public class Person {
 		}
 	}
 
+	public String getPersonID() {
+		return personID;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getSocialSecurityNumber() {
+		return socialSecurityNumber;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public String[] getList() {
+		return list;
+	}
+
 }
