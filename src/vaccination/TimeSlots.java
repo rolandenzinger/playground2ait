@@ -2,20 +2,12 @@ package vaccination;
 
 public class TimeSlots {
 
-	private boolean slotIsScheduled;
 	private int slotId;
-	private String slotStart;
-	private String slotEnd;
-	private String slotDate;
 	private String[] schedules;
 
-	public TimeSlots(String TimeStart, String TimeEnd, String date, boolean scheduled) {
+	public TimeSlots() {
 
 		this.slotId = 0;
-		this.slotStart = TimeStart;
-		this.slotEnd = TimeEnd;
-		this.slotDate = date;
-		this.slotIsScheduled = scheduled;
 		schedules = new String[0];
 	}
 
