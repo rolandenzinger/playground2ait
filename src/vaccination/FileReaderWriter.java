@@ -69,8 +69,6 @@ public class FileReaderWriter {
 		
 		try (Scanner sc = new Scanner(file)) {
 		
-		} catch (FileNotFoundException ex) {
-			
 			do {
 
 				String currentLine = scanner.nextLine();
@@ -82,6 +80,10 @@ public class FileReaderWriter {
 
 				}
 			} while (exit);
+			
+		} catch (FileNotFoundException ex) {
+			
+			
 		}
 		
 		return "Fehler";
