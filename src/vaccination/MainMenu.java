@@ -72,9 +72,10 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
         }
 		switch (InterfaceOutput) {
             case "hinzufügen":
-			UserInterface.SaySomething("*Freies Impf-Zeitfenster angelegt*");
+			AddNewSlot(int locationId, String date, String timeStart, String timeEnd);
                 break;
             case "entfernen":
+			DeleteUnscheduledSlot(int slotId, boolean slotIsScheduled) --- löscht der Termin weg
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
                 break;
             default:
@@ -98,13 +99,13 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
                 personID = UserInterface.AskForString("Please enter PersonID");
                 fistName = UserInterface.AskForString("Please enter first Name");
                 lastName = UserInterface.AskForString("Please enter last Name");
-                socialSecurityNumber = Integer.parseInt(UserInterface.AskForString("Please enter Social Security number"));
+                socialSecurityNumber = IsaveInt("Please enter Social Security number");
                 street = UserInterface.AskForString("Please enter street");
-                zip = Integer.parseInt(UserInterface.AskForString("Please enter ZIP"));
+                zip = saveInt("Please enter ZIP");
                 city = UserInterface.AskForString("Please enter City");
                 country = UserInterface.AskForString("Please enter Country");
                 birthday = UserInterface.AskForString("Please enter Birthday");
-                telephone = Integer.parseInt(UserInterface.AskForString("Please enter telephone number"));
+                telephone = saveInt("Please enter telephone number");
                 Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
 									String country, String birthday, String telephone);
                 break;
