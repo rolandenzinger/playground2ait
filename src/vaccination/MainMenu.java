@@ -125,7 +125,7 @@ public static void timeSlot() { //Impfzeitfenster							Klemens
 			try {
 				 int ID = Interger.parseInt(UserInterface.AskForString("Bitte Peronen ID eingebn"));
 			} catch (NumberFormatException e) {
-				UserInterface.SaySomething("Not a number")
+				UserInterface.SaySomething("Not a number");
 			}
 	         Person.deletePerson(ID);
                 break;
