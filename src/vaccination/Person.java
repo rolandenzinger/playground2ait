@@ -48,7 +48,7 @@ public class Person {
 //		this.country = null;
 //		this.birthday = null;
 //		this.telephone = null;
-//		System.out.println("Löschen verlief erfolgreich");
+		System.out.println("Löschen verlief erfolgreich");
 	}
 
 	public void listAdd(String personID) { // fügt eine Person zur Liste hinzu
