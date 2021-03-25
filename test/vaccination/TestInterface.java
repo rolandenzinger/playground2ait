@@ -3,6 +3,10 @@ package vaccination;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Test;
 
 public class TestInterface {
@@ -14,20 +18,19 @@ public class TestInterface {
    }
 	   
 	   @Test public void TestAskForString() {
-	    	
-		   UserInterface.AskForString("Write car");
+	    
+		 assertEquals(UserInterface.AskForString("Write car"), "car");
 
    }
 	   
-	   @Test public void TestAskForDate() {
+	   @Test public void TestAskForDate() throws ParseException {
 	    			   
-		   UserInterface.AskForDate("Write 10/02/2020");
-		   UserInterface.AskForDate("Write as");
-
+			assertEquals(UserInterface.AskForDate("Write 10/02/2020"), new SimpleDateFormat("dd/MM/yyyy").parse("10/02/2020"));
 
    }
 	   
-	   @Test public void TestAskForNumber() {
+
+	@Test public void TestAskForNumber() {
 
 		   assertEquals(UserInterface.AskForNumber("Write 10"), 10);
 

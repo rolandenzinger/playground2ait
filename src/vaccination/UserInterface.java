@@ -6,23 +6,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 public class UserInterface {
+
+	static JFrame frame = new JFrame("Vaccination");
 
 	public static void SaySomething(String Info) {
 
 			String say = Info;
-		
-	        JFrame frame = new JFrame("Vaccination");
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        frame.setSize(300 , 300);
-	        frame.setBackground(new Color(156, 93, 82));
-	        frame.add(new JLabel(say));  
-	        frame.setVisible(true);
 
-
+			JOptionPane.showMessageDialog(frame, say);
+			
 	}
 	
 
@@ -36,25 +31,18 @@ public class UserInterface {
     }
 	
 	public static Date AskForDate (String info ) {
-		Date ans = null;
 		
-		
-		Scanner src = new Scanner(System.in);
-		
-		System.out.println(info);
-		
+		String userInput = JOptionPane.showInputDialog(info, frame);
+
+		Date date= null;
 		try {
-			
-		String input = src.nextLine();
-			
-			ans = new SimpleDateFormat("dd/MM/yyyy").parse(input);
-			
-		} catch (ParseException| NumberFormatException e) {
-			
+		date = new SimpleDateFormat("dd/MM/yyyy").parse(userInput);
+		} catch (ParseException e) {
+			JOptionPane.showMessageDialog(frame, "You've entered a wrong format");
+			AskForDate(info);
 		}
-		
-		
-		return ans;
+
+		return date;
 	}
 	
 	public static int AskForNumber (String question) {
