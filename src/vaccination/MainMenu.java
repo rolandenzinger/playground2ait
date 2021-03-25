@@ -63,7 +63,7 @@ public static void timeSlot() { //Impfzeitfenster
         } catch (NumberFormatException e) {
             UserInterface.SaySomething("Bitte geben Sie eine Zahl ein.");
         }
-		switch (InterfaceOutput) {
+		switch (InterfaceOutput) {s
             case 1:
                 System.out.println("*Freies Impf-Zeitfenster angelegt*");
                 break;
@@ -75,7 +75,7 @@ public static void timeSlot() { //Impfzeitfenster
                 break;
 		} while (!quit);
 	}
-public static void about() {
+public static void about() { //über
 	//prints the Information for the Programm
 	String output = 
 	"----INFORMATION----\n"+
@@ -122,7 +122,36 @@ public static void scedule() {// Terminvergabe
 }
 
 public void location() { //Standortverwaltung
-	
+	boolean quit = false;
+		String InterfaceOutput = 
+		"Welcome to Standortverwaltung:\n
+		------------------------
+		Standort hinzufügen     [dazu]
+		Standort löschen      	[löschen]
+		Standorte auflisten		[liste]
+		zurück                  [zurück]
+		";
+		boolean quit = false; 
+		do {
+			switch (UserInterface.AskForString(InterfaceOutput)) {
+			case "ort":
+				//@todo funktionsaufruf
+				break;
+
+			case "löschen":
+				//@todo funktionsaufruf
+				break;
+
+			case "liste":
+				//@todo funktionsaufruf
+				break;
+			
+			case "zurück":
+				quit = true; 
+			default:
+			UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
+			}
+		} while (!quit);
 }
 }
 }
