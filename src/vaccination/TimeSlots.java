@@ -8,7 +8,6 @@ public class TimeSlots {
 	private String slotEnd;
 	private String slotDate;
 	private String[] schedules;
-	int scheduleId;
 
 	public TimeSlots(String TimeStart, String TimeEnd, String date, boolean scheduled) {
 
@@ -38,28 +37,49 @@ public class TimeSlots {
 
 		return slotId;
 	}
-	
+
 	public boolean DeleteUnscheduledSlot(int slotId, boolean slotIsScheduled) {
 		boolean somethingRemoved = false;
-        for (int i = 0; i < schedules.length; i++) {
-            String[] tmp = schedules[i].split(";");
-            if (tmp[7].equals("false")) {
-            	schedules[i] = null;
-                removeSchedule(i);
-                somethingRemoved = true;
-            }
-        }
-        return somethingRemoved;
-    }
-	
-	public int AddScheduledSlotForPerson(int locationId, int personId, int slotId) {
-		return scheduleId;
+		for (int i = 0; i < schedules.length; i++) {
+			String[] tmp = schedules[i].split(";");
+			if (tmp[7].equals("false")) {
+				schedules[i] = null;
+				removeSchedule(i);
+				somethingRemoved = true;
+			}
+		}
+		return somethingRemoved;
 	}
-	
+
+	public int AddScheduledSlotForPerson(int locationId, int personId, int slotId) {
+		String[] tmp;
+		String reconstructedSchedule = "";
+		for (int i = 0; i < schedules.length; i++) {
+			tmp = schedules[i].split(";");
+			if (Integer.parseInt(tmp[0]) == slotId) {
+				tmp[1] = String.valueOf(locationId);
+				tmp[2] = String.valueOf(personId);
+			}
+			for (int j = 0; j < tmp.length; j++) {
+				reconstructedSchedule += tmp[j];
+			}
+			schedules[i] = reconstructedSchedule;
+		}
+		return 0;
+	}
+
 	public boolean DeleteScheduledSlotForPerson(int scheduleId) {
+		String[] tmp;
+		for (int i = 0; i < schedules.length; i++) {
+			tmp = schedules[i].split(";");
+			if (tmp[2].equals("false")) {
+				return false;
+			}
+			schedules = tmp;
+		}
 		return true;
 	}
-	
+
 	public int[] getAllUnscheduledSlotsForStation(int locationId) {
 		String[] schedule;
 		int i = 0;
@@ -72,10 +92,10 @@ public class TimeSlots {
 				i++;
 			}
 		}
-		
+
 		return unscheduledSlots;
 	}
-	
+
 	public int[] GetAllUnscheduledSlotsForDate(String date) {
 		String[] schedule;
 		int i = 0;
@@ -88,10 +108,10 @@ public class TimeSlots {
 				i++;
 			}
 		}
-		
+
 		return unscheduledSlots;
 	}
-	
+
 	public void removeSchedule(int scheduleIndex) {
 		String[] oldSchedules = schedules.clone();
 		schedules = new String[schedules.length - 1];
@@ -104,7 +124,7 @@ public class TimeSlots {
 			j++;
 		}
 	}
-	
+
 	public int[] increaseArrayLength(int[] array) {
 		int[] oldArray = array.clone();
 		array = new int[array.length + 1];
