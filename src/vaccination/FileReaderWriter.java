@@ -1,11 +1,14 @@
 package vaccination;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.management.relation.RoleInfoNotFoundException;
+import java.io.*;
+import java.util.Scanner;
 
 public class FileReaderWriter {
-	private int key;
+
+	public static Scanner scanner = new Scanner(System.in);
+
+	private String key;
 	private int id;
 	private String info1;
 	private String info2;
@@ -17,8 +20,9 @@ public class FileReaderWriter {
 	private String info8;
 	private String info9;
 	private String info10;
-	
-	FileReaderWriter(int key, int id , String info1, String info2,String info3,String info4,String info5,String info6,String info7,String info8,String info9,String info10){
+
+	FileReaderWriter(String key, int id, String info1, String info2, String info3, String info4, String info5,
+			String info6, String info7, String info8, String info9, String info10) {
 		this.key = key;
 		this.id = id;
 		this.info1 = info1;
@@ -31,46 +35,95 @@ public class FileReaderWriter {
 		this.info8 = info8;
 		this.info9 = info9;
 		this.info10 = info10;
-		
-	}
-	
-	public void fileWriting(String infoBlock) 
-			 throws IOException {
-	    
-	    BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
-	    writer.append(' ');
-	    writer.append(infoBlock);
-	    
-	    writer.close();
-	}
-		
-		
-		
-	
-	
-	public String fileReading(int key, int id) {
-		
-		//Elias
 
-		String infoBlock;
-		
-		infoBlock = info1 +";"+ info2 +";"+ info3 +";"+ info4 +";"+ info5 +";"+ info6 +";"+ info7 +";"+ info8 +";"+ info9 +";"+ info10;
-   		return infoBlock;
-		
-		
 	}
-	public boolean DeleteEntry(String key, int id){
 
-		return true;
+	public void fileWriting(FileReaderWriter infoBlock) {
+	String idstring = String.valueOf(id);
+		try {	
+		
+
+		BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
+		writer.append(idstring);
+		writer.append(key);
+		writer.append(info1);
+		writer.append(info2);
+		writer.append(info3);
+		writer.append(info4);
+		writer.append(info5);
+		writer.append(info6);
+		writer.append(info7);
+		writer.append(info8);
+		writer.append(info9);
+		writer.append(info10);
+
+		writer.close();
+		}catch(IOException e){
+			
+			e.printStackTrace();
+			
+		}
 	}
-	public String[] ReadAllEntriesWithKey(String key){
-		String[] arr = new String[8];
+	
+
+	public String fileReading(String key, int id) {
+
+		// Elias
+		boolean exit = true;
+		
+		File file = new File("Impfstoff.csv");
+		
+		try (Scanner sc = new Scanner(file)) {
+		
+			do {
+
+				String currentLine = scanner.nextLine();
+				String[] splittedInfos = currentLine.split(";");
+				if ((splittedInfos[0] == key) && (Integer.parseInt(splittedInfos[1]) == id)) {
+					System.out.println(currentLine);
+					exit = false;
+					return currentLine;
+
+				}
+			} while (exit);
+			
+		} catch (FileNotFoundException ex) {
+			
+			
+		}
+		
+		return "Fehler";
+
+	}
+
+	public String[] ReadAllEntriesWithKey(String key) {
+		String line;
+		String[] arr = new String[10];
+		int i = 0;
+
+		try {
+			BufferedReader read = new BufferedReader(new FileReader("./Impfung.xlsx"));
+			System.out.println("File read!");
+			if (read.readLine().equalsIgnoreCase(key)) {
+				while (!(read.readLine().isEmpty())) {
+					arr[i] = read.readLine();
+					i++;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return arr;
 	}
-	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation){
-		String info = null;
 
+	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation) {
+		String info = null;
+		String[] arr = new String[12];
+		arr = infoBlock.split(";");
+		info = arr[IndexOfRequestedInformation];
 		return info;
 	}
 
