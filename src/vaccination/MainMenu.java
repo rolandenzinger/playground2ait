@@ -53,7 +53,8 @@ public class MainMenu {
 public static void timeSlot() {
 			boolean quit = false; 
 			do {
-				// @todo zurück
+				// @todo zurück 
+				// Klemens
 				switch(UserInterFace.AskForString()) {
 				}
 			} while (!quit);
@@ -63,6 +64,7 @@ public void personal() {
 	boolean quit = false; 
 			do {	
 				//@todo 
+				// Klemens
 			}while(!quit);
 }
 
