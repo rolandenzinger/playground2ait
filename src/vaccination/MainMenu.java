@@ -194,10 +194,15 @@ public void location() { //Standortverwaltung
 		} while (!quit);
 }
 }
-public public static int saveInt() {
+public public static int saveInt(String Outup) {
 	boolean quit = false; 
 	do{
-		String = UserInterface.AskForString(String);
+		try{
+			return Interger.parseInt(UserInterface.AskForString(Output));
+		}catch(Exception ex){
+			UserInterface.SaySomething("not a number");
+		}
+		 
 	}while(quit);
 	
 }
