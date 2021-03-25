@@ -60,7 +60,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		String InterfaceOutput = 
 		"Willkommen bei Impfzeitfenster\n
 		------------------------
-		Geben Sie (hinzufügen) ein um ein Freies Impfenster anzulegen.
+		Geben Sie (hinzufügen) ein umx ein Freies Impfenster anzulegen.
 		Geben Sie (entfernen) um einen Impfzeitfenster zu löschen.
 		";
 		try {
