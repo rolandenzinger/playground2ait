@@ -42,7 +42,7 @@ public class TimeSlots {
 		boolean somethingRemoved = false;
 		for (int i = 0; i < schedules.length; i++) {
 			String[] tmp = schedules[i].split(";");
-			if (tmp[7].equals("false")) {
+			if (tmp[6].equals("false")) {
 				schedules[i] = null;
 				removeSchedule(i);
 				somethingRemoved = true;
@@ -53,29 +53,32 @@ public class TimeSlots {
 
 	public int AddScheduledSlotForPerson(int locationId, int personId, int slotId) {
 		String[] tmp;
+		int scheduleId = -1;
 		String reconstructedSchedule = "";
 		for (int i = 0; i < schedules.length; i++) {
 			tmp = schedules[i].split(";");
-			if (Integer.parseInt(tmp[0]) == slotId) {
+			if (Integer.parseInt(tmp[0]) == slotId && tmp[6].equals("false")) {
 				tmp[1] = String.valueOf(locationId);
 				tmp[2] = String.valueOf(personId);
+				scheduleId = Integer.parseInt(tmp[0]);
 			}
+			
 			for (int j = 0; j < tmp.length; j++) {
 				reconstructedSchedule += tmp[j];
 			}
 			schedules[i] = reconstructedSchedule;
 		}
-		return 0;
+		return scheduleId;
 	}
 
 	public boolean DeleteScheduledSlotForPerson(int scheduleId) {
 		String[] tmp;
 		for (int i = 0; i < schedules.length; i++) {
 			tmp = schedules[i].split(";");
-			if (tmp[2].equals("false")) {
-				return false;
+			if (Integer.parseInt(tmp[0]) == scheduleId) {
+				tmp[2] = "---";
 			}
-			schedules = tmp;
+			
 		}
 		return true;
 	}
