@@ -48,6 +48,7 @@ public class MainMenu {
 			}
 		} while (!quit);
 	}
+}
 
 public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 
@@ -66,7 +67,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		try {
             userInput = Integer.parseInt(sc.nextLine());
         } catch (NumberFormatException e) {
-            UserInterface.SaySomething("Bitte geben Sie ein Wort ein.");
+            UserInterface.SaySomething("Bitte geben sie hinzufügen oder entfernen ein.");
         }
 		switch (InterfaceOutput) {
             case "hinzufügen":
@@ -76,7 +77,9 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 			DeleteUnscheduledSlot(int saveInt("Geben sie die SlotID ein"), boolean slotIsScheduled) --- löscht der Termin weg
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
                 break;
-            default:
+				case "zurück":
+			quit = true; 
+			default:
 			UserInterface.SaySomething("Falsche Eingabe");
                 break;
 		} while (!quit);
