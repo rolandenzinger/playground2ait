@@ -8,6 +8,7 @@ public class TimeSlots {
 	private String slotEnd;
 	private String slotDate;
 	private String[] schedules;
+	int scheduleId;
 
 	public TimeSlots(int id, String TimeStart, String TimeEnd, String date, boolean scheduled) {
 
@@ -16,7 +17,6 @@ public class TimeSlots {
 		this.slotEnd = TimeEnd;
 		this.slotDate = date;
 		this.slotIsScheduled = scheduled;
-		//test
 		schedules = new String[0];
 	}
 
@@ -40,6 +40,23 @@ public class TimeSlots {
 		return slotId;
 	}
 	
+	public boolean DeleteUnscheduledSlot(int slotId) {
+		return true;
+	}
 	
-
+	public int AddScheduledSlotForPerson(int locationId, int personId, int slotId) {
+		return scheduleId;
+	}
+	
+	public boolean DeleteScheduledSlotForPerson(int scheduleId) {
+		return true;
+	}
+	
+	public String[] getAllUnscheduledSlotsForStation(int stationId) {
+		return null;
+	}
+	
+	public String[] GetAllUnscheduledSlotsForDate(String date) {
+		return null;
+	}
 }
