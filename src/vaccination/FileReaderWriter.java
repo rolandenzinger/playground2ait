@@ -1,8 +1,20 @@
 package vaccination;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+
 
 public class FileReaderWriter {
+	
+	public static Scanner sc = new Scanner(System.in);
+	
 	private String key;
 	private int id;
 	private String info1;
@@ -33,24 +45,11 @@ public class FileReaderWriter {
 	}
 	
 	public void fileWriting(String infoBlock) 
-	
 			 throws IOException {
-				 String idstring = String.valueOf(id);
 	    
 	    BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
-	    writer.append(idstring);
-	    writer.append(key);
-	    writer.append(info1);
-	    writer.append(info2);
-	    writer.append(info3);
-	    writer.append(info4);
-	    writer.append(info5);
-	    writer.append(info6);
-	    writer.append(info7);
-	    writer.append(info8);
-	    writer.append(info9);
-	    writer.append(info10);
-	    
+	    writer.append(' ');
+	    writer.append(infoBlock);
 	    
 	    writer.close();
 	}
@@ -62,30 +61,45 @@ public class FileReaderWriter {
 	public String fileReading(String key, int id) {
 		
 		//Elias
+		//BufferedReader reader = new BufferedReader(new FileReader("Impfstoff"), true);
 		
 		
-		return null;
-	}
+		
+		
 
-	public String[] ReadAllEntriesWithKey(String key){
-		String line;
+		String[] europa = new String[632];
+		File txtFile = new File(filePath);
 
-		int i = 0;
-
-		try {
-			BufferedReader read = new BufferedReader(new FileReader("./Impfung.xlsx"));
-			System.out.println("File read!");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		try (Scanner scfile = new Scanner(txtFile)) {
+			int index = 0;
+			while (scfile.hasNext()) {
+				String tmp = scfile.nextLine();
+				europa[index] = tmp;
+				index++;
+			}
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+//			return -1;
 		}
+		for (int i = 0; i < europa.length; i++) {
+//			System.out.println(europa[i]);
+		}
+		return europa;
 
-		return null;
+		
+
+	
+		
+		
 	}
+	public String[] ReadAllEntriesWithKey(String key){
+		String[] arr = new String[8];
 
+		return arr;
+	}
 	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation){
-
-
 		String info = null;
+
 		return info;
 	}
 
