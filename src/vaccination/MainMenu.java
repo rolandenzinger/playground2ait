@@ -5,8 +5,8 @@ package vaccination;
 // void UserInterface.SaySomething();
 
 public class MainMenu {
-
 	public static void main(String[] args) {
+		//@todo klassen speichern und lesen aufrufen
 		// Main UI
 		boolean quit = false;
 		String InterfaceOutput = 
@@ -19,6 +19,7 @@ public class MainMenu {
 		Über diese Applikation[über]
 		Beenden               [Beenden]
 		";
+		boolean quit = false; 
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
@@ -49,55 +50,20 @@ public class MainMenu {
 		} while (!quit);
 	}
 
-	public void timeSlot() {
+public static void timeSlot() {
+			boolean quit = false; 
 			do {
-				switch(UserInterFace.AskForString("Eingabe: \n Löschen Eingeben")) {
- 					case "";
-
-					 TimeSlot(int slot-id , String timeStart, String timeEnd, String date, boolean scheduled);
-
-					// Methode "einfügen" aufrufen
-					break;
+				// @todo zurück
+				switch(UserInterFace.AskForString()) {
 				}
-				case "";
-
-				deleteTime();
-
-				// Methode "löschen" aufrufen
-					break;
-
-
 			} while (!quit);
-		}
 
-	public void personal() {
-			do {
-				switch(UserInterFace.AskForString("Eingabe: \n Person anlegen 
-															\n Person löschen
-															\n Alle Personen listen")) {
- 					case "";
-
-					addPerson();
-
-					// Methode "einfügen" aufrufen
-					break;
-				}
-				case "";
-
-				deletePerson();
-
-				// Methode "löschen" aufrufen
-					break;
-				case "";
-
-				listPerson();
-
-				// Methode "löschen" aufrufen
-					break;
-
-
+}
+public void personal() {
+	boolean quit = false; 
+			do {	
+				//@todo 
 			}while(!quit);
-
 }
 
 public static void about() {
@@ -112,36 +78,11 @@ public static void about() {
 
 }
 
-	public static void scedule() {
+public static void scedule() {
 
-	}
+}
 
-	public void location() {
-		do {
-            switch(UserInterface.AskForString("Gib den Kommand + ein um einen Standort hinzuzufügen.")) {
-            case: "+";
-           
-            addLocation();
-            break;
-            }
-           
-            switch(UserInterface.AskForString("Gib den Kommand - ein um einen Standort zu löschen.")) {
-            case: "-";
-           
-            deleteLocation();
-            break;
-            }
-           
-            switch(UserInterface.AskForString("Gib den Kommand ListAll ein um jeden Standort aufzulisten.")) {
-            case: "ListAll";
-           
-            listAllLocations();
-            break;
-            }
-           
-           
-        } while (!stop);
-       
-    }
-
+public void location() {
+	
+}
 }
