@@ -32,7 +32,7 @@ public class FileReaderWriter {
 
 	}
 
-	public void fileWriting(String infoBlock)
+	public void fileWriting()
 
 			 throws IOException {
 				 String idstring = String.valueOf(id);
