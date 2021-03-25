@@ -68,23 +68,28 @@ public class FileReaderWriter {
 
 	public String fileReading(String key, int id) {
 
-		boolean exit = true;
-
 		// Elias
+		boolean exit = true;
+		
+		File file = new File("Impfstoff.csv");
+		
+		try (Scanner sc = new Scanner(file)) {
+		
+		} catch (FileNotFoundException ex) {
+			
+			do {
 
-		// Infos einlesen
-		do {
+				String currentLine = scanner.nextLine();
+				String[] splittedInfos = currentLine.split(";");
+				if ((splittedInfos[0] == key) && (Integer.parseInt(splittedInfos[1]) == id)) {
+					System.out.println(currentLine);
+					exit = false;
+					return currentLine;
 
-			String currentLine = scanner.nextLine();
-			String[] splittedInfos = currentLine.split(";");
-			if ((splittedInfos[0] == key) && (Integer.parseInt(splittedInfos[1]) == id)) {
-				System.out.println(currentLine);
-				exit = false;
-				return currentLine;
-
-			}
-		} while (exit);
-
+				}
+			} while (exit);
+		}
+		
 		return "Fehler";
 
 	}
