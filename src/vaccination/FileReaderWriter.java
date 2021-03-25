@@ -15,7 +15,7 @@ public class FileReaderWriter {
 	private String info8;
 	private String info9;
 	private String info10;
-	
+
 	FileReaderWriter(String key, int id , String info1, String info2,String info3,String info4,String info5,String info6,String info7,String info8,String info9,String info10){
 		this.key = key;
 		this.id = id;
@@ -29,14 +29,14 @@ public class FileReaderWriter {
 		this.info8 = info8;
 		this.info9 = info9;
 		this.info10 = info10;
-		
+
 	}
-	
-	public void fileWriting(String infoBlock) 
-	
+
+	public void fileWriting(String infoBlock)
+
 			 throws IOException {
 				 String idstring = String.valueOf(id);
-	    
+
 	    BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
 	    writer.append(idstring);
 	    writer.append(key);
@@ -50,20 +50,20 @@ public class FileReaderWriter {
 	    writer.append(info8);
 	    writer.append(info9);
 	    writer.append(info10);
-	    
-	    
+
+
 	    writer.close();
 	}
-		
-		
-		
-	
-	
+
+
+
+
+
 	public String fileReading(String key, int id) {
-		
+
 		//Elias
-		
-		
+
+
 		return null;
 	}
 
