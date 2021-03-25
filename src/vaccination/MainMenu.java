@@ -72,7 +72,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
         }
 		switch (InterfaceOutput) {
             case "hinzufügen":
-			AddNewSlot(int locationId, String date, String timeStart, String timeEnd);
+			AddScheduledSlotForPerson(int locationId, int personId, int slotId);
                 break;
             case "entfernen":
 			DeleteUnscheduledSlot(int slotId, boolean slotIsScheduled) --- löscht der Termin weg
