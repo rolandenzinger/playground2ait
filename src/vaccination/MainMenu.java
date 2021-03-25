@@ -83,7 +83,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		} while (!quit);
 	}
 
-	public static void personal() { //Personenverwaltung 	mit fabi				Klemens
+	public static void personal() { //Personenverwaltung 	mit fabi			 	Klemens
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Willkommen bei Personenverwaltung\n
@@ -95,26 +95,16 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		
 		switch (InterfaceInput) {
             case "hinzufügen":
-				UserInterface.SaySomething("Please enter PersonID");
-                personID = UserInterface.AskForString(String);
-				UserInterface.SaySomething("Please enter first Name");
-                fistName = UserInterface.AskForString(String);
-                UserInterface.SaySomething("Please enter last Name");
-                lastName = UserInterface.AskForString(String);
-                UserInterface.SaySomething("Please enter Social Security number");
-                socialSecurityNumber = Integer.parseInt(UserInterface.AskForString(String));
-                UserInterface.SaySomething("Please enter street");
-                street = UserInterface.AskForString(String);
-                UserInterface.SaySomething("Please enter ZIP");
-                zip = Integer.parseInt(UserInterface.AskForString(String));
-                UserInterface.SaySomething("Please enter City");
-                city = UserInterface.AskForString(String);
-                UserInterface.SaySomething("Please enter Country");
-                country = UserInterface.AskForString(String);
-                UserInterface.SaySomething("Please enter Birthday");
-                birthday = UserInterface.AskForString(String);
-                UserInterface.SaySomething("Please enter telephone number");
-                telephone = Integer.parseInt(UserInterface.AskForString(String));
+                personID = UserInterface.AskForString("Please enter PersonID");
+                fistName = UserInterface.AskForString("Please enter first Name");
+                lastName = UserInterface.AskForString("Please enter last Name");
+                socialSecurityNumber = Integer.parseInt(UserInterface.AskForString("Please enter Social Security number"));
+                street = UserInterface.AskForString("Please enter street");
+                zip = Integer.parseInt(UserInterface.AskForString("Please enter ZIP"));
+                city = UserInterface.AskForString("Please enter City");
+                country = UserInterface.AskForString("Please enter Country");
+                birthday = UserInterface.AskForString("Please enter Birthday");
+                telephone = Integer.parseInt(UserInterface.AskForString("Please enter telephone number"));
                 Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
 									String country, String birthday, String telephone);
                 break;
