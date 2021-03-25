@@ -63,10 +63,21 @@ public class FileReaderWriter {
 		//Elias
 		//BufferedReader reader = new BufferedReader(new FileReader("Impfstoff"), true);
 		
-		
-		
+
 		
 
+		
+		
+//		file.when(key)
+//			when(id)
+//				return allInfos
+		
+//		for(int col = 0; input == key; col++) {
+//			
+//		}
+		
+		
+		/*
 		String[] europa = new String[632];
 		File txtFile = new File(filePath);
 
@@ -85,12 +96,9 @@ public class FileReaderWriter {
 //			System.out.println(europa[i]);
 		}
 		return europa;
-
-		
-
 	
 		
-		
+		*/
 	}
 	public String[] ReadAllEntriesWithKey(String key){
 		String[] arr = new String[8];
