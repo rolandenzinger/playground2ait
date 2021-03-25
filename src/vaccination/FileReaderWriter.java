@@ -56,10 +56,6 @@ public class FileReaderWriter {
 		
 		
 	}
-	public boolean DeleteEntry(String key, int id){
-
-		return true;
-	}
 	public String[] ReadAllEntriesWithKey(String key){
 		String[] arr = new String[8];
 
