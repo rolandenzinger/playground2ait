@@ -98,31 +98,34 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		
 		switch (InterfaceInput) {
             case "hinzufügen":
- 				System.out.println("Please enter first Name");
-                fistName = sc.nextLine();
-                System.out.println("Please enter last Name");
-                lastName = sc.nextLine();
-                System.out.println("Please enter Social Security number");
-                socialnr = Integer.parseInt(sc.nextLine());
-                System.out.println("Please enter street");
-                street = sc.nextLine();
-                System.out.println("Please enter ZIP");
-                ZIP = Integer.parseInt(sc.nextLine());
-                System.out.println("Please enter City");
-                City = sc.nextLine();
-                System.out.println("Please enter Country");
-                Country = sc.nextLine();
-                System.out.println("Please enter Birthday");
-                Birthday = sc.nextLine();
-                System.out.println("Please enter telephone number");
-                telephone = Integer.parseInt(sc.nextLine());
-                Person.addNewPerson(fistName, lastName, socialnr, street, ZIP, City, Country, Birthday, telephone);
+				UserInterface.SaySomething("Please enter PersonID");
+                personID = UserInterface.AskForString(String);
+				UserInterface.SaySomething("Please enter first Name");
+                fistName = UserInterface.AskForString(String);
+                UserInterface.SaySomething("Please enter last Name");
+                lastName = UserInterface.AskForString(String);
+                UserInterface.SaySomething("Please enter Social Security number");
+                socialSecurityNumber = Integer.parseInt(UserInterface.AskForString(String));
+                UserInterface.SaySomething("Please enter street");
+                street = UserInterface.AskForString(String);
+                UserInterface.SaySomething("Please enter ZIP");
+                zip = Integer.parseInt(UserInterface.AskForString(String));
+                UserInterface.SaySomething("Please enter City");
+                city = UserInterface.AskForString(String);
+                UserInterface.SaySomething("Please enter Country");
+                country = UserInterface.AskForString(String);
+                UserInterface.SaySomething("Please enter Birthday");
+                birthday = UserInterface.AskForString(String);
+                UserInterface.SaySomething("Please enter telephone number");
+                telephone = Integer.parseInt(UserInterface.AskForString(String));
+                Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
+									String country, String birthday, String telephone);
                 break;
             case "entfernen":
 			try {
 				 int ID = Interger.parseInt(UserInterface.AskForString("Bitte Peronen ID eingebn"));
 			} catch (NumberFormatException e) {
-				UserInterface.SaySomething("Not a number")
+				UserInterface.SaySomething("Not a number");
 			}
 	         Person.deletePerson(ID);
                 break;
