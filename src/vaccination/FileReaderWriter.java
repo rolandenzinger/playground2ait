@@ -1,8 +1,6 @@
 package vaccination;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class FileReaderWriter {
 	private int key;
@@ -53,21 +51,28 @@ public class FileReaderWriter {
 		//Elias
 		
 		
-		
+		return null;
 	}
+
 	public String[] ReadAllEntriesWithKey(String key){
-		String[] arr = new String[8];
+		String line;
 
-		return arr;
+		int i = 0;
 
-  	}
-	public String GetInfoFromBlock(String infoblock, int IndexOfRequestedInformation){
+		try {
+			BufferedReader read = new BufferedReader(new FileReader("./Impfung.xlsx"));
+			System.out.println("File read!");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 
+		return null;
 	}
+
 	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation){
 
-		String info = null;
 
+		String info = null;
 		return info;
 	}
 
