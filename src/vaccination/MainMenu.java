@@ -80,11 +80,41 @@ public static void about() {
 
 }
 
-public static void scedule() {
+public static void scedule() {// Terminvergabe
+	boolean quit = false;
+	String InterfaceOutput = 
+	"Welcome to Terminvergabe:\n
+	------------------------
+	Freie Termine für Standort anzeigen    [ort]
+	Freie Termine für Datum anzeigen       [datum]
+	Freien Termin buchen       			   [buchen]
+	Gebuchten Termin löschen               [löschen]
+	zurück                                 [zurück]
+	";
+	boolean quit = false; 
+	do {
+		switch (UserInterface.AskForString(InterfaceOutput)) {
+		case "ort":
+			//@todo funktionsaufruf
+			break;
 
+		case "zeit":
+			//@todo funktionsaufruf
+			break;
+		
+		case "termin":
+			//@todo funktionsaufruf
+			break;
+
+		case "zurück":
+			quit = true; 
+		default:
+		UserInterface.SaySomething("Keine vallide eingabe!");
+		}
+	} while (!quit);
 }
 
-public void location() {
+public void location() { //Standortverwaltung
 	
 }
 }
