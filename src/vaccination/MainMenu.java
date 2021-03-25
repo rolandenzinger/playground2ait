@@ -74,7 +74,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 			AddScheduledSlotForPerson(int saveInt("Geben sie die location ein"), int saveInt("Geben sie eine PeronID"), int saveInt("Geben sie eine SlotID"));
                 break;
             case "entfernen":
-			DeleteUnscheduledSlot(int saveInt("Geben sie die SlotID ein"), boolean slotIsScheduled) --- löscht der Termin weg
+			DeleteUnscheduledSlot(int saveInt("Geben sie die SlotID ein"), boolean saveBoolean("geben Sie war oder falsch für löschen an")) --- löscht der Termin weg
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
                 break;
 				case "zurück":
