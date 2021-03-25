@@ -1,13 +1,11 @@
 package vaccination;
 
-import java.util.Scanner;
 import java.awt.Color;
-import java.sql.Date;
-import javax.swing.JButton;
+import java.util.Date;
+import java.util.Scanner;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import com.sun.tools.javac.parser.Scanner;
 
 public class UserInterface {
 
