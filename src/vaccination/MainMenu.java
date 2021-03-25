@@ -98,25 +98,28 @@ public static void timeSlot() { //Impfzeitfenster							Klemens
 		
 		switch (InterfaceInput) {
             case "hinzufügen":
-			UserInterface.SaySomething("Please enter first Name");
+				UserInterface.SaySomething("Please enter PersonID");
+                personID = UserInterface.AskForString(String);
+				UserInterface.SaySomething("Please enter first Name");
                 fistName = UserInterface.AskForString(String);
                 UserInterface.SaySomething("Please enter last Name");
                 lastName = UserInterface.AskForString(String);
                 UserInterface.SaySomething("Please enter Social Security number");
-                socialnr = Integer.parseInt(UserInterface.AskForString(String));
+                socialSecurityNumber = Integer.parseInt(UserInterface.AskForString(String));
                 UserInterface.SaySomething("Please enter street");
                 street = UserInterface.AskForString(String);
                 UserInterface.SaySomething("Please enter ZIP");
-                ZIP = Integer.parseInt(UserInterface.AskForString(String));
+                zip = Integer.parseInt(UserInterface.AskForString(String));
                 UserInterface.SaySomething("Please enter City");
-                City = UserInterface.AskForString(String);
+                city = UserInterface.AskForString(String);
                 UserInterface.SaySomething("Please enter Country");
-                Country = UserInterface.AskForString(String);
+                country = UserInterface.AskForString(String);
                 UserInterface.SaySomething("Please enter Birthday");
-                Birthday = UserInterface.AskForString(String);
+                birthday = UserInterface.AskForString(String);
                 UserInterface.SaySomething("Please enter telephone number");
                 telephone = Integer.parseInt(UserInterface.AskForString(String));
-                Person.addNewPerson(fistName, lastName, socialnr, street, ZIP, City, Country, Birthday, telephone);
+                Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
+									String country, String birthday, String telephone);
                 break;
             case "entfernen":
 			try {
