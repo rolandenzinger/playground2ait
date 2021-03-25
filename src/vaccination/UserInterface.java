@@ -13,7 +13,8 @@ public class UserInterface {
 	static JFrame frame = new JFrame("Vaccination");
 
 	public static void SaySomething(String Info) {
-
+		//Luca Lepai
+		
 			String say = Info;
 
 			JOptionPane.showMessageDialog(frame, say);
@@ -23,6 +24,8 @@ public class UserInterface {
 
 	
 	public static String AskForString (String question) {
+		//Paul Ladstätter
+		
         Scanner sc = new Scanner(System.in);
         System.out.println(question);
 
@@ -31,7 +34,7 @@ public class UserInterface {
     }
 	
 	public static Date AskForDate (String info ) {
-		
+		//Killian Neumann
 		String userInput = JOptionPane.showInputDialog(info, frame);
 
 		Date date= null;
@@ -46,6 +49,8 @@ public class UserInterface {
 	}
 	
 	public static int AskForNumber (String question) {
+		//Markus König
+		
 		int num = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println(question);
