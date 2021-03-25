@@ -4,18 +4,19 @@ public class Person {
 	private String personID;
 	private String firstName;
 	private String lastName;
-	private int socialSecurityNumber;
+	private String socialSecurityNumber;
 	private String street;
 	private String zip;
 	private String city;
 	private String country;
 	private String birthday;
-	private int telephone;
-	private String[] list = new String[100];
+	private String telephone;
+	private String[] list = new String[1];
 
-	public String addNewPerson(String personID, String firstName, String lastName, int socialSecurityNumber,
-			String street, String zip, String city, String country, String birthday, int telephone) { // fügt eine
-																										// person hinzu
+	public String addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,
+			String street, String zip, String city, String country, String birthday, String telephone) { // fügt eine
+																											// person
+																											// hinzu
 		this.personID = personID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -26,8 +27,7 @@ public class Person {
 		this.country = country;
 		this.birthday = birthday;
 		this.telephone = telephone;
-		String fullName = lastName + " " + firstName;
-		listCreate(fullName);
+		listAdd(personID);
 		return personID;
 	}
 
@@ -35,34 +35,85 @@ public class Person {
 		for (int i = 0; i < list.length; i++) {
 			if (list[i].equals(personID)) {
 				list[i] = null;
+				i = list.length + 1;
 			}
 		}
-		this.personID = null;
-		this.firstName = null;
-		this.lastName = null;
-		this.socialSecurityNumber = 0;
-		this.street = null;
-		this.zip = null;
-		this.city = null;
-		this.country = null;
-		this.birthday = null;
-		this.telephone = 0;
+//		this.personID = null;
+//		this.firstName = null;
+//		this.lastName = null;
+//		this.socialSecurityNumber = null;
+//		this.street = null;
+//		this.zip = null;
+//		this.city = null;
+//		this.country = null;
+//		this.birthday = null;
+//		this.telephone = null;
 		System.out.println("Löschen verlief erfolgreich");
 	}
 
-	public void listCreate(String fullname) { // listet alle Personen auf
+	public void listAdd(String personID) { // fügt eine Person zur Liste hinzu
+		String[] tmp = new String[list.length + 1];
+		for (int i = 0; i < list.length; i++) {
+			tmp[i] = list[i];
+		}
+		list = new String[tmp.length];
+		for(int i = 0; i < tmp.length; i++) {
+			list[i] = tmp[i];
+		}
 		for (int i = 0; i < list.length; i++) {
 			if (list[i] == null) {
-				list[i] = fullname;
+				list[i] = personID;
+				i = list.length + 1;
 			}
 		}
-
 	}
 
-	public void listAllPersons() {
-		for (int i = 0; i < list.length - 1; i++) {
-			System.out.println(list[i]);
+	public void listAllPersons() { // listet alle Personen hinzu
+		for (int i = 0; i < list.length; i++) {
+			if (list[i] != null) {
+				System.out.println(list[i]);
+			}
 		}
+	}
+
+	public String getPersonID() {
+		return personID;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getSocialSecurityNumber() {
+		return socialSecurityNumber;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public String getTelephone() {
+		return telephone;
 	}
 
 }
