@@ -86,7 +86,7 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
 		} while (!quit);
 	}
 
-	public static void personal() { //Personenverwaltung 	mit fabi				Klemens
+	public static void personal() { //Personenverwaltung 	mit fabi			 	Klemens
 		boolean quit = false;
 		String InterfaceOutput = 
 		"Willkommen bei Personenverwaltung\n
