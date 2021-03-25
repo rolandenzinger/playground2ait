@@ -70,10 +70,10 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
         }
 		switch (InterfaceOutput) {
             case "hinzufügen":
-			AddScheduledSlotForPerson(int locationId, int personId, int slotId);
+			AddScheduledSlotForPerson(int saveInt("Geben sie die location ein"), int saveInt("Geben sie eine PeronID"), int saveInt("Geben sie eine SlotID"));
                 break;
             case "entfernen":
-			DeleteUnscheduledSlot(int slotId, boolean slotIsScheduled) --- löscht der Termin weg
+			DeleteUnscheduledSlot(int saveInt("Geben sie die SlotID ein"), boolean slotIsScheduled) --- löscht der Termin weg
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
                 break;
             default:
@@ -112,7 +112,10 @@ public static void timeSlot() { //Impfzeitfenster			mit Petar				Klemens
                 break;
 			case "auflisten"
 			person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
-            default:
+            break;
+			case "zurück":
+			quit = true; 
+			default:
 			UserInterface.SaySomething("Falsche Eingabe");
                 break;
 		} while (!quit);
