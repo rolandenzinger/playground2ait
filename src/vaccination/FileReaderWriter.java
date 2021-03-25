@@ -38,10 +38,10 @@ public class FileReaderWriter {
 
 	}
 
-	public void fileWriting(String infoBlock)
-
-			throws IOException {
-		String idstring = String.valueOf(id);
+	public void fileWriting(FileReaderWriter infoBlock) {
+	String idstring = String.valueOf(id);
+		try {	
+		
 
 		BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
 		writer.append(idstring);
@@ -58,7 +58,13 @@ public class FileReaderWriter {
 		writer.append(info10);
 
 		writer.close();
+		}catch(IOException e){
+			
+			e.printStackTrace();
+			
+		}
 	}
+	
 
 	public String fileReading(String key, int id) {
 
@@ -114,8 +120,10 @@ public class FileReaderWriter {
 	}
 
 	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation) {
-
 		String info = null;
+		String[] arr = new String[12];
+		arr = infoBlock.split(";");
+		info = arr[IndexOfRequestedInformation];
 		return info;
 	}
 
