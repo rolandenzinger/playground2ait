@@ -50,24 +50,31 @@ public class MainMenu {
 		} while (!quit);
 	}
 
-public static void timeSlot() {
-			boolean quit = false; 
-			do {
-				// @todo zurück 
-				// Klemens
-				switch(UserInterFace.AskForString()) {
-				}
-			} while (!quit);
-
-}
-public void personal() {
-	boolean quit = false; 
-			do {	
-				//@todo 
-				// Klemens
-			}while(!quit);
-}
-
+public static void timeSlot() { //Impfzeitfenster
+		boolean quit = false;
+		String InterfaceOutput = 
+		"Willkommen bei Impfzeitfenster\n
+		------------------------
+		Geben Sie (1) ein um ein Freies Impfenster anzulegen.
+		Geben Sie (2) um einpackage vaccination
+		";
+		try {
+            userInput = Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            UserInterface.SaySomething("Bitte geben Sie eine Zahl ein.");
+        }
+		switch (InterfaceOutput) {
+            case 1:
+                System.out.println("*Freies Impf-Zeitfenster angelegt*");
+                break;
+            case 2:
+                System.out.println("*Ungebuchtes Impf-Zeitfenster gelöscht*");
+                break;
+            default:
+                System.out.println("Falsche Nummer");
+                break;
+		} while (!quit);
+	}
 public static void about() {
 	//prints the Information for the Programm
 	String output = 
@@ -86,5 +93,6 @@ public static void scedule() {
 
 public void location() {
 	
+}
 }
 }
