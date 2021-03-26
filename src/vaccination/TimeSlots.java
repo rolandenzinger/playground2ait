@@ -2,62 +2,87 @@ package vaccination;
 
 public class TimeSlots {
 
-	private int slotId;
+	private int slotIds;
 	private String[] schedules;
+	
+	public int getSlotIds() {
+		return slotIds;
+	}
+	
+	public String[] getSchedules() {
+		return schedules;
+	}
 
 	public TimeSlots() {
 
-		this.slotId = 0;
+		this.slotIds = -1;
 		schedules = new String[0];
 	}
 
 	public int AddNewSlot(int locationId, String date, String timeStart, String timeEnd) {
 
 		String[] tmp = schedules.clone();
-		schedules = new String[schedules.length + 1];
-		slotId++;
+		String[] newSchedules = new String[schedules.length + 1];
+		slotIds++;
 
-		for (int i = 0; i < schedules.length; i++) {
+		for (int i = 0; i < newSchedules.length; i++) {
 
-			if (i < schedules.length - 1) {
-				schedules[i] = tmp[i];
+			if (i < newSchedules.length - 1) {
+				newSchedules[i] = tmp[i];
 			} else {
-				schedules[i] = slotId + ";" + locationId + ";" + "---" + ";" + date + ";" + timeStart + ";" + timeEnd + ";" + "false";
+				newSchedules[i] = slotIds + ";" + locationId + ";" + "---" + ";" + date + ";" + timeStart + ";" + timeEnd + ";" + "false";
 			}
 
 		}
-
-		return slotId;
+		schedules = newSchedules;
+		return slotIds;
 	}
 
-	public boolean DeleteUnscheduledSlot(int slotId, boolean slotIsScheduled) {
+	public boolean DeleteUnscheduledSlot(int slotId) {
+		if (slotId >= schedules.length || slotId < 0) {
+			return false;
+		}
+		
 		boolean somethingRemoved = false;
 		for (int i = 0; i < schedules.length; i++) {
 			String[] tmp = schedules[i].split(";");
-			if (tmp[6].equals("false")) {
+			if (slotId == Integer.parseInt(tmp[0]) && tmp[6].equals("false")) {
 				schedules[i] = null;
-				removeSchedule(i);
-				somethingRemoved = true;
+				if (removeSchedule(i)) {
+					somethingRemoved = true;
+				}
 			}
 		}
 		return somethingRemoved;
 	}
 
 	public int AddScheduledSlotForPerson(int locationId, int personId, int slotId) {
+		
+		if (slotId >= schedules.length || slotId < 0) {
+			return -1;
+		}
+		
 		String[] tmp;
 		int scheduleId = -1;
-		String reconstructedSchedule = "";
+		
 		for (int i = 0; i < schedules.length; i++) {
+			String reconstructedSchedule = "";
 			tmp = schedules[i].split(";");
 			if (Integer.parseInt(tmp[0]) == slotId && tmp[6].equals("false")) {
-				tmp[1] = String.valueOf(locationId);
-				tmp[2] = String.valueOf(personId);
-				tmp[6] = "true";
-				scheduleId = Integer.parseInt(tmp[0]);
+				if (Integer.parseInt(tmp[1]) == locationId) {
+					tmp[2] = String.valueOf(personId);
+					tmp[6] = "true";
+					scheduleId = i;
+				}
 			}
 			
 			for (int j = 0; j < tmp.length; j++) {
-				reconstructedSchedule += tmp[j];
+				if (j < tmp.length - 1) {
+					reconstructedSchedule += tmp[j] + ";";
+				} else {
+					reconstructedSchedule += tmp[j];
+				}
+				
 			}
 			schedules[i] = reconstructedSchedule;
 		}
@@ -65,20 +90,30 @@ public class TimeSlots {
 	}
 
 	public boolean DeleteScheduledSlotForPerson(int scheduleId) {
+		if (scheduleId >= schedules.length || slotIds < 0) {
+			return false;
+		}
+		
 		String[] tmp;
-		String reconstructedSchedule = "";
+		boolean somethingRemoved = false;
 		for (int i = 0; i < schedules.length; i++) {
+			String reconstructedSchedule = "";
 			tmp = schedules[i].split(";");
-			if (Integer.parseInt(tmp[0]) == scheduleId) {
+			if (Integer.parseInt(tmp[0]) == scheduleId && tmp[6].equals("true")) {
 				tmp[2] = "---";
 				tmp[6] = "false";
+				somethingRemoved = true;
 			}
 			for (int j = 0; j < tmp.length; j++) {
-				reconstructedSchedule += tmp[j];
+				if (j < tmp.length - 1) {
+					reconstructedSchedule += tmp[j] + ";";
+				} else {
+					reconstructedSchedule += tmp[j];
+				}
 			}
 			schedules[i] = reconstructedSchedule;
 		}
-		return true;
+		return somethingRemoved;
 	}
 
 	public int[] GetAllUnscheduledSlotsForStation(int locationId) {
@@ -113,20 +148,26 @@ public class TimeSlots {
 		return unscheduledSlots;
 	}
 
-	public void removeSchedule(int scheduleIndex) {
+	private boolean removeSchedule(int scheduleIndex) {
+		if (schedules.length == 0) {
+			return false;
+		}
+		
 		String[] oldSchedules = schedules.clone();
-		schedules = new String[schedules.length - 1];
+		String[] newSchedules = new String[schedules.length - 1];
 		int j = 0;
-		for (int i = 0; i < schedules.length; i++) {
-			if (i == scheduleIndex) {
+		for (int i = 0; i < oldSchedules.length; i++) {
+			if (oldSchedules[i] == null) {
 				continue;
 			}
-			schedules[j] = oldSchedules[i];
+			newSchedules[j] = oldSchedules[i];
 			j++;
 		}
+		schedules = newSchedules;
+		return true;
 	}
 
-	public int[] increaseArrayLength(int[] array) {
+	private int[] increaseArrayLength(int[] array) {
 		int[] oldArray = array.clone();
 		array = new int[array.length + 1];
 		for (int i = 0; i < array.length; i++) {
