@@ -44,61 +44,65 @@ public class MainMenu {
 	}
 
 	// nicht fertig
-	public static void timeSlot() { 
-		//Impfzeitfenster mit TimeSlot
-		// public TimeSlots(int id, String TimeStart, String TimeEnd, String date, boolean scheduled)
+	public static void timeSlot() {
+		TimeSlots slot = new TimeSlots();
+		// Impfzeitfenster mit TimeSlot
+		// public TimeSlots(int id, String TimeStart, String TimeEnd, String date,
+		// boolean scheduled)
 		// public boolean DeleteUnscheduledSlot(int slotId)
-		// public int AddScheduledSlotForPerson(int locationId, int personId, int slotId)
+		// public int AddScheduledSlotForPerson(int locationId, int personId, int
+		// slotId)
 		// public boolean DeleteScheduledSlotForPerson(int scheduleId)
 		// public int[] getAllUnscheduledSlotsForStation(int locationId)
 		boolean quit = false;
-		String InterfaceOutput = 
-		"Willkommen bei Impfzeitfenster\n"+
-		"------------------------\n"+
-		"Geben Sie (hinzufügen) ein umx ein Freies Impfenster anzulegen.\n"+
-		"Geben Sie (entfernen) um einen Impfzeitfenster zu löschen.";
-		
+		String InterfaceOutput = "Willkommen bei Impfzeitfenster\n" + "------------------------\n"
+				+ "Geben Sie (hinzufügen) ein umx ein Freies Impfenster anzulegen.\n"
+				+ "Geben Sie (entfernen) um einen Impfzeitfenster zu löschen.";
+
 		try {
-    		//String userInput = Integer.parseInt(UserInterface.AskForString());
-        } catch (NumberFormatException e) {
-            UserInterface.SaySomething("Bitte geben sie hinzufügen oder entfernen ein.");
-        }
+			// String userInput = Integer.parseInt(UserInterface.AskForString());
+		} catch (NumberFormatException e) {
+			UserInterface.SaySomething("Bitte geben sie hinzufügen oder entfernen ein.");
+		}
 		switch (InterfaceOutput) {
-            case "hinzufügen":
-			TimeSlots.AddScheduledSlotForPerson(saveInt("Geben sie die location ein"),
+		case "hinzufügen":
+			slot.AddScheduledSlotForPerson(saveInt("Geben sie die location ein"),
 
-	 saveInt("Geben sie eine PeronID"),
+					saveInt("Geben sie eine PeronID"),
 
-	 saveInt("Geben sie eine SlotID"));
-                break;
-            case "entfernen":
-			TimeSlots.DeleteUnscheduledSlot( saveInt("Geben sie die SlotID ein");
+					saveInt("Geben sie eine SlotID"));
+			break;
+		case "entfernen":
+			slot.DeleteUnscheduledSlot(saveInt("Geben sie die SlotID ein"));
 
-		//boolean bool = saveBoolean("geben Sie war oder falsch für löschen an")) // löscht der Termin weg
+			// boolean bool = saveBoolean("geben Sie war oder falsch für löschen an")) //
+			// löscht der Termin weg
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
-                break;
-				case "zurück":
-			quit = true; 
-			default:
+			break;
+		case "zurück":
+			quit = true;
+		default:
 			UserInterface.SaySomething("Falsche Eingabe");
-                break;
-		}while(!quit);
+			break;
+		}
+		while (!quit)
+			;
 
 	}
 
 	public static void personal() { // Personenverwaltung mit Person
+		Person person = new Person();
 		boolean quit = false;
 		String InterfaceOutput = "Willkommen bei Personenverwaltung\n" + "------------------------\n"
 				+ "Geben Sie (anlegem) um eine neue Person anzulegen.\n"
 				+ "Geben Sie (löschen) um eine Person zu löschen.\n"
 				+ "Geben Sie (auflisten) ein um Alle Personen zu listen";
-
 		String InterfaceInput = UserInterface.AskForString(InterfaceOutput);
 		do {
 			switch (InterfaceInput) {
 			case "hinzufügen":
 				String personID = UserInterface.AskForString("Please enter PersonID");
-				String fistName = UserInterface.AskForString("Please enter first Name");
+				String firstName = UserInterface.AskForString("Please enter first Name");
 				String lastName = UserInterface.AskForString("Please enter last Name");
 				String socialSecurityNumber = UserInterface.AskForString("Please enter Social Security number");
 				String street = UserInterface.AskForString("Please enter street");
@@ -106,15 +110,15 @@ public class MainMenu {
 				String city = UserInterface.AskForString("Please enter City");
 				String country = UserInterface.AskForString("Please enter Country");
 				String birthday = UserInterface.AskForString("Please enter Birthday");
-				String elephone = UserInterface.AskForString("Please enter telephone number");
-				// Person.addNewPerson(String personID, String firstName, String lastName,
-				// String socialSecurityNumber,String street, String zip, String city,
-				// String country, String birthday, String
-				// telephone);break;case"entfernen":Person.deletePerson(saveInt("geben Sie die
-				// Id der zu löschenden Person an"));
+				String telephone = UserInterface.AskForString("Please enter telephone number");
+				person.addNewPerson(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
+						birthday, telephone);
+				break;
+			case "entfernen":
+				person.deletePerson(UserInterface.AskForString("geben Sie die Id der zu löschenden Person an"));
 				break;
 			case "auflisten":
-				Person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
+				person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
 				break;
 			case "zurück":
 				quit = true;
@@ -135,52 +139,53 @@ public class MainMenu {
 
 	}
 
-	public static void scedule() {// Terminvergabe	mit TimeSlot
-	boolean quit = false;
-	String InterfaceOutput = 
-	"Welcome to Terminvergabe:\n"+
-	"------------------------"+
-	"Freie Termine für Standort anzeigen    [ort]"+
-	"Freie Termine für Datum anzeigen       [datum]"+
-	"Freien Termin buchen       			   [buchen]"+
-	"Gebuchten Termin löschen               [löschen]"+
-	"zurück                                 [zurück]";
-	// public TimeSlots(int id, String TimeStart, String TimeEnd, String date, boolean scheduled)
-	// public boolean DeleteUnscheduledSlot(int slotId)
-	// public int AddScheduledSlotForPerson(int locationId, int personId, int slotId)
-	// public boolean DeleteScheduledSlotForPerson(int scheduleId)
-	// public int[] getAllUnscheduledSlotsForStation(int locationId)
-	
-	do {
-		switch (UserInterface.AskForString(InterfaceOutput)) {
-		case "ort":
-		TimeSlots.GetAllUnscheduledSlotsForStation(saveInt("Geben Sie die Ort-ID an"));
-			break;
+	public static void scedule() {// Terminvergabe mit TimeSlot
+		boolean quit = false;
+		String InterfaceOutput = "Welcome to Terminvergabe:\n" + "------------------------"
+				+ "Freie Termine für Standort anzeigen    [ort]" + "Freie Termine für Datum anzeigen       [datum]"
+				+ "Freien Termin buchen       			   [buchen]"
+				+ "Gebuchten Termin löschen               [löschen]"
+				+ "zurück                                 [zurück]";
+		// public TimeSlots(int id, String TimeStart, String TimeEnd, String date,
+		// boolean scheduled)
+		// public boolean DeleteUnscheduledSlot(int slotId)
+		// public int AddScheduledSlotForPerson(int locationId, int personId, int
+		// slotId)
+		// public boolean DeleteScheduledSlotForPerson(int scheduleId)
+		// public int[] getAllUnscheduledSlotsForStation(int locationId)
+		TimeSlots timeSlots = new TimeSlots();
+		do {
+			switch (UserInterface.AskForString(InterfaceOutput)) {
+			case "ort":
+				timeSlots.GetAllUnscheduledSlotsForStation(saveInt("Geben Sie die Ort-ID an"));
+				break;
 
-		case "zeit":
-		TimeSlots.GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an")))
-			break;
-		
-		case "buchen":
-		TimeSlots.AddScheduledSlotForPerson( saveInt("Geben Sie die ID der Location an"), saveInt("Geben Sie die ID der Person an"), saveInt("Geben Sie die ID des Slots an"));
-		break;
+			case "zeit":
+				timeSlots.GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an"));
+				break;
 
-		case "löschen":
-		TimeSlots.DeleteScheduledSlotForPerson( saveInt("Geben Sie die ID des zu löschenden Slots an"));
-	break;
+			case "buchen":
+				timeSlots.AddScheduledSlotForPerson(saveInt("Geben Sie die ID der Location an"),
+						saveInt("Geben Sie die ID der Person an"), saveInt("Geben Sie die ID des Slots an"));
+				break;
 
-	case "zurück":
-	quit=true;
-	break;
-	default:
-	UserInterface.SaySomething("Keine vallide eingabe!");
-	}
+			case "löschen":
+				timeSlots.DeleteScheduledSlotForPerson(saveInt("Geben Sie die ID des zu löschenden Slots an"));
+				break;
 
-	}while(!quit);
+			case "zurück":
+				quit = true;
+				break;
+			default:
+				UserInterface.SaySomething("Keine vallide eingabe!");
+			}
+
+		} while (!quit);
 
 	}
 
 	public static void location() { // Standortverwaltung mit Location
+		Location loc = new Location();
 		boolean quit = false;
 		String InterfaceOutput = "Welcome to Standortverwaltung:\n" + "------------------------"
 				+ "Standort hinzufügen     [dazu]" + "Standort löschen      	[löschen]"
@@ -189,7 +194,7 @@ public class MainMenu {
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
-				Location.addLocation(UserInterface.AskForString("geben Sie den Namen an"),
+				loc.addLocation(UserInterface.AskForString("geben Sie den Namen an"),
 						UserInterface.AskForString("geben Sie die Straße an"),
 						UserInterface.AskForString("geben Sie den Zip code an"),
 						UserInterface.AskForString("geben Sie die Stadt"),
@@ -199,11 +204,11 @@ public class MainMenu {
 			case "löschen":
 
 				int id = saveInt("geben Sie die ID der Location an");
-				Location.deleteLocation(id);
+				loc.deleteLocation(id);
 				break;
 
 			case "liste":
-				Location.listAllLocation();
+				loc.listAllLocation();
 				break;
 
 			case "zurück":
@@ -227,6 +232,7 @@ public class MainMenu {
 			}
 
 		} while (quit);
+		return -1;
 
 	}
 
