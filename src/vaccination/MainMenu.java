@@ -227,7 +227,7 @@ public class MainMenu {
 	}
 
 	public static void location() { // Standortverwaltung mit Location
-		// Location loc = new Location();
+		Location loc = new Location();
 		boolean quit = false;
 		String InterfaceOutput = "Welcome to Standortverwaltung:\n" + "------------------------\n"
 				+ "Standort hinzufuegen   [dazu]\n" + "Standort loeschen      [loeschen]\n"
@@ -235,7 +235,7 @@ public class MainMenu {
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
-				Location.addLocation(UserInterface.AskForString("geben Sie den Namen an"),
+				loc.addLocation(UserInterface.AskForString("geben Sie den Namen an"),
 						UserInterface.AskForString("geben Sie die Strasse an"),
 						UserInterface.AskForString("geben Sie den Zip code an"),
 						UserInterface.AskForString("geben Sie die Stadt"),
@@ -248,18 +248,18 @@ public class MainMenu {
 				String city = UserInterface.AskForString("Please enter City");
 				String country = UserInterface.AskForString("Please enter Country");
 				String lastName = UserInterface.AskForString("Please enter last Name");
-				Location.addLocation(lastName, street, zip, city, country);
+				loc.addLocation(lastName, street, zip, city, country);
 				quit = true;
 				break;
 
 			case "loeschen":
 				int id = saveInt("geben Sie die ID der Location an");
-				Location.deleteLocation(id);
+				loc.deleteLocation(id);
 				quit = true;
 				break;
 
 			case "liste":
-				Location.listAllLocation();
+				loc.listAllLocation();
 				quit = true;
 				break;
 
