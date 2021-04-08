@@ -102,8 +102,10 @@ public class MainMenu {
 		String country = UserInterface.AskForString("Please enter Country");
 		String birthday = UserInterface.AskForString("Please enter Birthday");
 		String telephone = UserInterface.AskForString("Please enter telephone number");
-		Person person = new Person(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
-				birthday, telephone);
+		// Person person = new Person(personID, firstName, lastName,
+		// socialSecurityNumber, street, zip, city, country,
+		// birthday, telephone);
+		PersonArray array = new PersonArray();
 		boolean quit = false;
 		String InterfaceOutput = "Willkommen bei Personenverwaltung\n" + "------------------------\n"
 				+ "Geben Sie (anlegen) um eine neue Person anzulegen.\n"
@@ -124,18 +126,30 @@ public class MainMenu {
 				country = UserInterface.AskForString("Please enter Country");
 				birthday = UserInterface.AskForString("Please enter Birthday");
 				telephone = UserInterface.AskForString("Please enter telephone number");
-				person.addNewPerson(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
+				array.addNewPerson(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
 						birthday, telephone);
 				quit = true;
 				UserInterface.SaySomething("erstellt");
 				break;
 			case "entfernen":
-				person.deletePerson(UserInterface.AskForString("geben Sie die Id der zu löschenden Person an"));
+				personID = UserInterface.AskForString("Please enter PersonID");
+				firstName = UserInterface.AskForString("Please enter first Name");
+				lastName = UserInterface.AskForString("Please enter last Name");
+				socialSecurityNumber = UserInterface.AskForString("Please enter Social Security number");
+				street = UserInterface.AskForString("Please enter street");
+				zip = UserInterface.AskForString("Please enter ZIP");
+				city = UserInterface.AskForString("Please enter City");
+				country = UserInterface.AskForString("Please enter Country");
+				birthday = UserInterface.AskForString("Please enter Birthday");
+				telephone = UserInterface.AskForString("Please enter telephone number");
+				Person del = new Person(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
+						birthday, telephone);
+				array.deletePerson(del);
 				quit = true;
 				UserInterface.SaySomething("erstellt");
 				break;
 			case "auflisten":
-				person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
+				array.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
 				quit = true;
 				break;
 			case "zurück":
