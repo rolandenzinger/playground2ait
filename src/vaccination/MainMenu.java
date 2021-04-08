@@ -10,7 +10,7 @@ public class MainMenu {
 		String InterfaceOutput = "Welcome to VacManager:\n" + "------------------------\n"
 				+ "Standortverwaltung    [ort]\n" + "Impf-Zeitfenster      [zeit]\n"
 				+ "Terminvergabe         [termin]\n" + "Personalverwaltung    [person]\n"
-				+ "Über diese Applikation[über]\n" + "Beenden               [Beenden]";
+				+ "Über diese Applikation[about]\n" + "Beenden               [Beenden]";
 
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
@@ -30,7 +30,7 @@ public class MainMenu {
 				personal();
 				break;
 
-			case "über":
+			case "about":
 				about();
 				break;
 
@@ -134,9 +134,9 @@ public class MainMenu {
 
 	public static void about() { // über
 		// prints the Information for the Programm
-		String output = "----INFORMATION----\n" + "Programm information:\n"
-				+ "Dies ist ein Programm zur Speicherung und verwaltung von Impfkampagnen\n" + "Programmierinformation:"
-				+ "Entwickelt von: 2AIT Software Devellopment\n";
+		String output = "----INFORMATION----\n" + "Programminformation:\n"
+				+ "Dies ist ein Programm zur Speicherung und Verwaltung von Impfkampagnen.\n\n"
+				+ "Programmierinformation:\nSuper Programm!\n\n" + "Entwickelt von:\n2AIT Software Devellopment";
 		UserInterface.SaySomething(output);
 
 	}
@@ -160,19 +160,23 @@ public class MainMenu {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
 				timeSlots.GetAllUnscheduledSlotsForStation(saveInt("Geben Sie die Ort-ID an"));
+				quit = true;
 				break;
 
 			case "zeit":
 				timeSlots.GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an"));
+				quit = true;
 				break;
 
 			case "buchen":
 				timeSlots.AddScheduledSlotForPerson(saveInt("Geben Sie die ID der Location an"),
 						saveInt("Geben Sie die ID der Person an"), saveInt("Geben Sie die ID des Slots an"));
+				quit = true;
 				break;
 
 			case "löschen":
 				timeSlots.DeleteScheduledSlotForPerson(saveInt("Geben Sie die ID des zu löschenden Slots an"));
+				quit = true;
 				break;
 
 			case "zurück":
