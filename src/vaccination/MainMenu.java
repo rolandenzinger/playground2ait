@@ -144,9 +144,9 @@ public class MainMenu {
 		boolean quit = false;
 		String InterfaceOutput = "Welcome to Terminvergabe:\n" + "------------------------\n"
 				+ "Freie Termine für Standort anzeigen    [ort]\n" + "Freie Termine für Datum anzeigen       [datum]\n"
-				+ "Freien Termin buchen       			   [buchen]\n"
-				+ "Gebuchten Termin löschen               [löschen]\n"
-				+ "zurück                                 [zurück]";
+				+ "Freien Termin buchen                   [buchen]\n"
+				+ "Gebuchten Termin löschen               [delete]\n"
+				+ "zurück zum Hauptmenü                   [haupt]";
 		// public TimeSlots(int id, String TimeStart, String TimeEnd, String date,
 		// boolean scheduled)
 		// public boolean DeleteUnscheduledSlot(int slotId)
@@ -160,25 +160,29 @@ public class MainMenu {
 			case "ort":
 				timeSlots.GetAllUnscheduledSlotsForStation(saveInt("Geben Sie die Ort-ID an"));
 				quit = true;
+				UserInterface.SaySomething("Änderung Erfolgreich");
 				break;
 
-			case "zeit":
+			case "datum":
 				timeSlots.GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an"));
 				quit = true;
+				UserInterface.SaySomething("Änderung Erfolgreich");
 				break;
 
 			case "buchen":
 				timeSlots.AddScheduledSlotForPerson(saveInt("Geben Sie die ID der Location an"),
 						saveInt("Geben Sie die ID der Person an"), saveInt("Geben Sie die ID des Slots an"));
 				quit = true;
+				UserInterface.SaySomething("Hinzufügen Erfolgreich");
 				break;
 
-			case "löschen":
+			case "delete":
 				timeSlots.DeleteScheduledSlotForPerson(saveInt("Geben Sie die ID des zu löschenden Slots an"));
 				quit = true;
+				UserInterface.SaySomething("Löschung Erfolgreich");
 				break;
 
-			case "zurück":
+			case "haupt":
 				quit = true;
 				break;
 			default:
