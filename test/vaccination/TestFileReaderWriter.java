@@ -32,7 +32,7 @@ class TestFileReaderWriter {
 		 String info8 = "Ledich";
 		 String info9 = "32";
 		 String info10 = "Maennlich";
-		FileReaderWriter test = new FileReaderWriter(key,id,info1,info2,info3,info4,info5,info6,info7,info8,info9,info10);
+		vaccination.FileReaderWriter test = new vaccination.FileReaderWriter(key,id,info1,info2,info3,info4,info5,info6,info7,info8,info9,info10);
 		test.fileWriting(test);
 		String readingResult = "";
 		readingResult = test.fileReading(key, id);
