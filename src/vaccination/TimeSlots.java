@@ -2,8 +2,8 @@ package vaccination;
 
 public class TimeSlots {
 
-	private int slotIds;
-	private String[] schedules;
+	private static int slotIds;
+	private static String[] schedules;
 	
 	public int getSlotIds() {
 		return slotIds;
@@ -19,7 +19,7 @@ public class TimeSlots {
 		schedules = new String[0];
 	}
 
-	public int AddNewSlot(int locationId, String date, String timeStart, String timeEnd) {
+	public static int AddNewSlot(int locationId, String date, String timeStart, String timeEnd) {
 
 		String[] tmp = schedules.clone();
 		String[] newSchedules = new String[schedules.length + 1];
@@ -38,7 +38,7 @@ public class TimeSlots {
 		return slotIds;
 	}
 
-	public boolean DeleteUnscheduledSlot(int slotId) {
+	public static boolean DeleteUnscheduledSlot(int slotId) {
 		if (slotId >= schedules.length || slotId < 0) {
 			return false;
 		}
@@ -56,7 +56,7 @@ public class TimeSlots {
 		return false;
 	}
 
-	public int AddScheduledSlotForPerson(int locationId, int personId, int slotId) {
+	public static int AddScheduledSlotForPerson(int locationId, int personId, int slotId) {
 		
 		if (slotId >= schedules.length || slotId < 0) {
 			return -1;
@@ -89,7 +89,7 @@ public class TimeSlots {
 		return scheduleId;
 	}
 
-	public boolean DeleteScheduledSlotForPerson(int scheduleId) {
+	public static boolean DeleteScheduledSlotForPerson(int scheduleId) {
 		if (scheduleId >= schedules.length || scheduleId < 0) {
 			return false;
 		}
@@ -116,7 +116,7 @@ public class TimeSlots {
 		return somethingRemoved;
 	}
 
-	public int[] GetAllUnscheduledSlotsForStation(int locationId) {
+	public static int[] GetAllUnscheduledSlotsForStation(int locationId) {
 		String[] schedule;
 		int i = 0;
 		int[] unscheduledSlots = new int[0];
@@ -132,7 +132,7 @@ public class TimeSlots {
 		return unscheduledSlots;
 	}
 
-	public int[] GetAllUnscheduledSlotsForDate(String date) {
+	public static int[] GetAllUnscheduledSlotsForDate(String date) {
 		String[] schedule;
 		int i = 0;
 		int[] unscheduledSlots = new int[0];
@@ -148,7 +148,7 @@ public class TimeSlots {
 		return unscheduledSlots;
 	}
 
-	private boolean removeSchedule(int scheduleIndex) {
+	private static boolean removeSchedule(int scheduleIndex) {
 		if (schedules.length == 0) {
 			return false;
 		}
@@ -167,7 +167,7 @@ public class TimeSlots {
 		return true;
 	}
 
-	private int[] increaseArrayLength(int[] array) {
+	private static int[] increaseArrayLength(int[] array) {
 		int[] oldArray = array.clone();
 		array = new int[array.length + 1];
 		for (int i = 0; i < array.length; i++) {
