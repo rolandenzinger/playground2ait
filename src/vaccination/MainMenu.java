@@ -45,7 +45,6 @@ public class MainMenu {
 		UserInterface.SaySomething("Programm beendet");
 	}
 
-	// nicht fertig
 	public static void timeSlot() {
 		TimeSlots slot = new TimeSlots();
 		// Impfzeitfenster mit TimeSlot
