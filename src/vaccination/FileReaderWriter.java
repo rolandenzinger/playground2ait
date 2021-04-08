@@ -73,11 +73,15 @@ public class FileReaderWriter {
 			String currentLine = read.readLine();
 
 			String[] splittedInfos = currentLine.split(";");
-			if ((splittedInfos[0].equalsIgnoreCase(key)) && (Integer.parseInt(splittedInfos[1]) == id)) {
-				exit = false;
-				return currentLine;
+			do {
+				if ((Integer.parseInt(splittedInfos[0]) == id) && (splittedInfos[1].equalsIgnoreCase(key))) {
+					exit = false;
+					System.out.println(currentLine);
 
-			}
+					return currentLine;
+
+				}
+			} while (exit);
 
 		} catch (FileNotFoundException ex) {
 
