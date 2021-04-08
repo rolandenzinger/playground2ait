@@ -94,6 +94,7 @@ public class MainMenu {
 				+ "Geben Sie (auflisten) ein um Alle Personen zu listen";
 
 		String InterfaceInput = UserInterface.AskForString(InterfaceOutput);
+<<<<<<< Updated upstream
 		do {
 			switch (InterfaceInput) {
 			case "hinzufügen":
@@ -113,6 +114,23 @@ public class MainMenu {
 				// telephone);break;case"entfernen":Person.deletePerson(saveInt("geben Sie die
 				// Id der zu löschenden Person an"));
 				break;
+=======
+		switch (InterfaceInput) {
+            case "hinzufügen":
+                String personID = UserInterface.AskForString("Please enter PersonID");
+                String fistName = UserInterface.AskForString("Please enter first Name");
+                String lastName = UserInterface.AskForString("Please enter last Name");
+                String socialSecurityNumber = IsaveInt("Please enter Social Security number");
+                String street = UserInterface.AskForString("Please enter street");
+                String zip = saveInt("Please enter ZIP");
+                String city = UserInterface.AskForString("Please enter City");
+                String country = UserInterface.AskForString("Please enter Country");
+                String birthday = UserInterface.AskForString("Please enter Birthday");
+                String elephone = saveInt("Please enter telephone number");
+               Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
+			 						String country, String birthday, String telephone);break;case"entfernen":Person.deletePerson(saveInt("geben Sie die Id der zu löschenden Person an"));
+                break;
+>>>>>>> Stashed changes
 			case "auflisten":
 				Person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
 				break;
@@ -227,6 +245,7 @@ public class MainMenu {
 			}
 
 		} while (quit);
+		return null;
 	}
 
 	public static boolean saveBoolean(String Output) {
