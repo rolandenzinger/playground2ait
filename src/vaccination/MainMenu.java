@@ -95,13 +95,14 @@ public class MainMenu {
 		Person person = new Person();
 		boolean quit = false;
 		String InterfaceOutput = "Willkommen bei Personenverwaltung\n" + "------------------------\n"
-				+ "Geben Sie (anlegem) um eine neue Person anzulegen.\n"
-				+ "Geben Sie (löschen) um eine Person zu löschen.\n"
-				+ "Geben Sie (auflisten) ein um Alle Personen zu listen";
-		String InterfaceInput = UserInterface.AskForString(InterfaceOutput);
+				+ "Geben Sie (anlegen) um eine neue Person anzulegen.\n"
+				+ "Geben Sie (entfernen) um eine Person zu löschen.\n"
+				+ "Geben Sie (auflisten) ein um Alle Personen zu listen"
+				+ "Geben Sie (haupt) ein um zurück zum Hauptmenü zu kommen";
 		do {
+			String InterfaceInput = UserInterface.AskForString(InterfaceOutput);
 			switch (InterfaceInput) {
-			case "hinzufügen":
+			case "anlegen":
 				String personID = UserInterface.AskForString("Please enter PersonID");
 				String firstName = UserInterface.AskForString("Please enter first Name");
 				String lastName = UserInterface.AskForString("Please enter last Name");
@@ -114,12 +115,17 @@ public class MainMenu {
 				String telephone = UserInterface.AskForString("Please enter telephone number");
 				person.addNewPerson(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
 						birthday, telephone);
+				quit = true;
+				UserInterface.SaySomething("erstellt");
 				break;
 			case "entfernen":
 				person.deletePerson(UserInterface.AskForString("geben Sie die Id der zu löschenden Person an"));
+				quit = true;
+				UserInterface.SaySomething("erstellt");
 				break;
 			case "auflisten":
 				person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
+				quit = true;
 				break;
 			case "zurück":
 				quit = true;
