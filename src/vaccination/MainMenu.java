@@ -18,7 +18,7 @@ public class MainMenu {
 		"Beenden               [Beenden]";
 
 		do {
-			switch (UserInterface.AskForString(InterfaceOutput)) 
+			 switch (UserInterface.AskForString(InterfaceOutput)) 
 			case "ort":
 				location();
 				break;
@@ -102,29 +102,29 @@ public class MainMenu {
 		String InterfaceInput= UserInterface.AskForString(InterfaceOutput);
 		switch (InterfaceInput) {
             case "hinzufügen":
-                String personID = UserInterface.AskForString("Please enter PersonID");
-                String fistName = UserInterface.AskForString("Please enter first Name");
-                String lastName = UserInterface.AskForString("Please enter last Name");
-                String socialSecurityNumber = IsaveInt("Please enter Social Security number");
-                String street = UserInterface.AskForString("Please enter street");
-                Sting zip = saveInt("Please enter ZIP");
-                String city = UserInterface.AskForString("Please enter City");
-                String country = UserInterface.AskForString("Please enter Country");
-                String birthday = UserInterface.AskForString("Please enter Birthday");
-                String elephone = saveInt("Please enter telephone number");
-                Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
-									String country, String birthday, String telephone);
+                // String personID = UserInterface.AskForString("Please enter PersonID");
+                // String fistName = UserInterface.AskForString("Please enter first Name");
+                // String lastName = UserInterface.AskForString("Please enter last Name");
+                // String socialSecurityNumber = IsaveInt("Please enter Social Security number");
+                // String street = UserInterface.AskForString("Please enter street");
+                // String zip = saveInt("Please enter ZIP");
+                // String city = UserInterface.AskForString("Please enter City");
+                // String country = UserInterface.AskForString("Please enter Country");
+                // String birthday = UserInterface.AskForString("Please enter Birthday");
+                // String elephone = saveInt("Please enter telephone number");
+ //               Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
+//									String country, String birthday, String telephone);
 					break;
 					case"entfernen":
-					Person.deletePerson(saveInt("geben Sie die Id der zu löschenden Person an"));
+//					Person.deletePerson(saveInt("geben Sie die Id der zu löschenden Person an"));
                 break;
 			case "auflisten"
-			person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
+//			person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
             break;
 			case "zurück":
 			quit = true; 
 			default:
-			UserInterface.SaySomething("Falsche Eingabe");
+//			UserInterface.SaySomething("Falsche Eingabe");
                 break;
 		}while(!quit);
 
@@ -213,7 +213,7 @@ public class MainMenu {
 	case"liste":listAllLocation();break;
 
 	case"zurück":
-	quit=true;
+	quit = true;
 	default:UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
 	break;
 
