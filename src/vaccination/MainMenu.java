@@ -36,11 +36,13 @@ public class MainMenu {
 
 			case "beenden":
 				quit = true;
+				break;
 			default:
 				UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
 				break;
 			}
 		} while (!quit);
+		UserInterface.SaySomething("Programm beendet");
 	}
 
 	// nicht fertig
@@ -141,10 +143,10 @@ public class MainMenu {
 
 	public static void scedule() {// Terminvergabe mit TimeSlot
 		boolean quit = false;
-		String InterfaceOutput = "Welcome to Terminvergabe:\n" + "------------------------"
-				+ "Freie Termine für Standort anzeigen    [ort]" + "Freie Termine für Datum anzeigen       [datum]"
-				+ "Freien Termin buchen       			   [buchen]"
-				+ "Gebuchten Termin löschen               [löschen]"
+		String InterfaceOutput = "Welcome to Terminvergabe:\n" + "------------------------\n"
+				+ "Freie Termine für Standort anzeigen    [ort]\n" + "Freie Termine für Datum anzeigen       [datum]\n"
+				+ "Freien Termin buchen       			   [buchen]\n"
+				+ "Gebuchten Termin löschen               [löschen]\n"
 				+ "zurück                                 [zurück]";
 		// public TimeSlots(int id, String TimeStart, String TimeEnd, String date,
 		// boolean scheduled)
@@ -187,9 +189,9 @@ public class MainMenu {
 	public static void location() { // Standortverwaltung mit Location
 		Location loc = new Location();
 		boolean quit = false;
-		String InterfaceOutput = "Welcome to Standortverwaltung:\n" + "------------------------"
-				+ "Standort hinzufügen     [dazu]" + "Standort löschen      	[löschen]"
-				+ "Standorte auflisten		[liste]" + "zurück                  [zurück]";
+		String InterfaceOutput = "Welcome to Standortverwaltung:\n" + "------------------------\n"
+				+ "Standort hinzufügen     [dazu]\n" + "Standort löschen      	[löschen]\n"
+				+ "Standorte auflisten		[liste]\n" + "zurück                  [zurück]";
 
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
