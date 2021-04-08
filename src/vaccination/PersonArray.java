@@ -28,6 +28,10 @@ public class PersonArray {
 		return personID;
 	}
 
+	public Person[] getPersonList() {
+		return personList;
+	}
+
 	public void deletePerson(Person person) { // löscht eine Person
 		for (int i = 0; i < personList.length; i++) {
 			if (personList[i] == null) {
