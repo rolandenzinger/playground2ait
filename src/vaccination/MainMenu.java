@@ -1,3 +1,4 @@
+//change
 package vaccination;
 
 // String = UserInterface.AskForString(String);
@@ -63,14 +64,14 @@ public class MainMenu {
 
 		switch (UserInterface.AskForString(InterfaceOutput)) {
 		case "hinzufuegen":
-			
-		slot.AddScheduledSlotForPerson(saveInt("Geben sie die locationID ein"),
+
+			slot.AddScheduledSlotForPerson(saveInt("Geben sie die locationID ein"),
 
 					saveInt("Geben sie eine PeronID"),
 
 					saveInt("Geben sie eine SlotID"));
-					quit = true;
-					UserInterface.SaySomething("hinzufügen erfolgreich");
+			quit = true;
+			UserInterface.SaySomething("hinzufügen erfolgreich");
 			break;
 		case "entfernen":
 			slot.DeleteUnscheduledSlot(saveInt("Geben sie die SlotID ein"));
@@ -87,7 +88,8 @@ public class MainMenu {
 			UserInterface.SaySomething("Falsche Eingabe");
 			break;
 		}
-		while (!quit);
+		while (!quit)
+			;
 
 	}
 
@@ -228,38 +230,48 @@ public class MainMenu {
 		// Location loc = new Location();
 		boolean quit = false;
 		String InterfaceOutput = "Welcome to Standortverwaltung:\n" + "------------------------\n"
-				+ "Standort hinzufügen     [dazu]\n" + "Standort löschen      	[löschen]\n"
-				+ "Standorte auflisten		[liste]\n" + "zurück                  [zurück]";
-
+				+ "Standort hinzufuegen   [dazu]\n" + "Standort loeschen      [loeschen]\n"
+				+ "Standorte auflisten    [liste]\n" + "zurueck                [zurueck]";
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
 				Location.addLocation(UserInterface.AskForString("geben Sie den Namen an"),
-						UserInterface.AskForString("geben Sie die Straße an"),
+						UserInterface.AskForString("geben Sie die Strasse an"),
 						UserInterface.AskForString("geben Sie den Zip code an"),
 						UserInterface.AskForString("geben Sie die Stadt"),
 						UserInterface.AskForString("geben Sie die Stadt an"));
+				quit = true;
+				break;
+			case "dazu":
+				String street = UserInterface.AskForString("Please enter street");
+				String zip = UserInterface.AskForString("Please enter ZIP");
+				String city = UserInterface.AskForString("Please enter City");
+				String country = UserInterface.AskForString("Please enter Country");
+				String lastName = UserInterface.AskForString("Please enter last Name");
+				Location.addLocation(lastName, street, zip, city, country);
+				quit = true;
 				break;
 
-			case "löschen":
-
+			case "loeschen":
 				int id = saveInt("geben Sie die ID der Location an");
 				Location.deleteLocation(id);
+				quit = true;
 				break;
 
 			case "liste":
 				Location.listAllLocation();
+				quit = true;
 				break;
 
-			case "zurück":
+			case "zurueck":
 				quit = true;
+				break;
 			default:
 				UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
 				break;
 			}
 
 		} while (!quit);
-
 	}
 
 	public static int saveInt(String Output) {
