@@ -94,7 +94,6 @@ public class MainMenu {
 				+ "Geben Sie (auflisten) ein um Alle Personen zu listen";
 
 		String InterfaceInput = UserInterface.AskForString(InterfaceOutput);
-<<<<<<< Updated upstream
 		do {
 			switch (InterfaceInput) {
 			case "hinzufügen":
@@ -114,23 +113,6 @@ public class MainMenu {
 				// telephone);break;case"entfernen":Person.deletePerson(saveInt("geben Sie die
 				// Id der zu löschenden Person an"));
 				break;
-=======
-		switch (InterfaceInput) {
-            case "hinzufügen":
-                String personID = UserInterface.AskForString("Please enter PersonID");
-                String fistName = UserInterface.AskForString("Please enter first Name");
-                String lastName = UserInterface.AskForString("Please enter last Name");
-                String socialSecurityNumber = IsaveInt("Please enter Social Security number");
-                String street = UserInterface.AskForString("Please enter street");
-                String zip = saveInt("Please enter ZIP");
-                String city = UserInterface.AskForString("Please enter City");
-                String country = UserInterface.AskForString("Please enter Country");
-                String birthday = UserInterface.AskForString("Please enter Birthday");
-                String elephone = saveInt("Please enter telephone number");
-               Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
-			 						String country, String birthday, String telephone);break;case"entfernen":Person.deletePerson(saveInt("geben Sie die Id der zu löschenden Person an"));
-                break;
->>>>>>> Stashed changes
 			case "auflisten":
 				Person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
 				break;
@@ -198,40 +180,40 @@ public class MainMenu {
 
 	}
 
-	public static void location() { //Standortverwaltung mit Location
-	boolean quit = false;
-	String InterfaceOutput = 
-	"Welcome to Standortverwaltung:\n"+
-	"------------------------"+
-	"Standort hinzufügen     [dazu]"+
-	"Standort löschen      	[löschen]"+
-	"Standorte auflisten		[liste]"+
-	"zurück                  [zurück]";
+	public static void location() { // Standortverwaltung mit Location
+		boolean quit = false;
+		String InterfaceOutput = "Welcome to Standortverwaltung:\n" + "------------------------"
+				+ "Standort hinzufügen     [dazu]" + "Standort löschen      	[löschen]"
+				+ "Standorte auflisten		[liste]" + "zurück                  [zurück]";
 
-	do {
-		switch (UserInterface.AskForString(InterfaceOutput)){
+		do {
+			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
-			Location.addLocation(UserInterface.AskForString("geben Sie den Namen an"),UserInterface.AskForString("geben Sie die Straße an"),UserInterface.AskForString("geben Sie den Zip code an"),UserInterface.AskForString("geben Sie die Stadt"), UserInterface.AskForString("geben Sie die Stadt an"));
-			break;
+				Location.addLocation(UserInterface.AskForString("geben Sie den Namen an"),
+						UserInterface.AskForString("geben Sie die Straße an"),
+						UserInterface.AskForString("geben Sie den Zip code an"),
+						UserInterface.AskForString("geben Sie die Stadt"),
+						UserInterface.AskForString("geben Sie die Stadt an"));
+				break;
 
 			case "löschen":
 
-			int id = saveInt("geben Sie die ID der Location an"));
-			Location.deleteLocation(id);
-			break;
+				int id = saveInt("geben Sie die ID der Location an");
+				Location.deleteLocation(id);
+				break;
 
-			case"liste":
-			Location.listAllLocation();
-			break;
+			case "liste":
+				Location.listAllLocation();
+				break;
 
-			case"zurück":
-			quit = true;
+			case "zurück":
+				quit = true;
 			default:
-			UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
-			break;
-		}
+				UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
+				break;
+			}
 
-}while(!quit);
+		} while (!quit);
 
 	}
 
@@ -245,7 +227,7 @@ public class MainMenu {
 			}
 
 		} while (quit);
-		return null;
+
 	}
 
 	public static boolean saveBoolean(String Output) {
