@@ -74,5 +74,16 @@ public class Location {
 		}
 
 	}
+	
+	
+	public void readOutDatabase() {
+		
+		
+		
+		
+		
+	}
+	
+	
 
 }
