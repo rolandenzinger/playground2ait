@@ -30,7 +30,7 @@ public class TimeSlots {
 			if (i < newSchedules.length - 1) {
 				newSchedules[i] = tmp[i];
 			} else {
-				newSchedules[i] = slotIds + ";" + locationId + ";" + "---" + ";" + date + ";" + timeStart + ";" + timeEnd + ";" + "false";
+				newSchedules[i] = slotIds + ";" + locationId + ";" + "" + ";" + date + ";" + timeStart + ";" + timeEnd + ";" + "false";
 			}
 
 		}
@@ -90,7 +90,7 @@ public class TimeSlots {
 	}
 
 	public boolean DeleteScheduledSlotForPerson(int scheduleId) {
-		if (scheduleId >= schedules.length || slotIds < 0) {
+		if (scheduleId >= schedules.length || scheduleId < 0) {
 			return false;
 		}
 		
@@ -100,7 +100,7 @@ public class TimeSlots {
 			String reconstructedSchedule = "";
 			tmp = schedules[i].split(";");
 			if (Integer.parseInt(tmp[0]) == scheduleId && tmp[6].equals("true")) {
-				tmp[2] = "---";
+				tmp[2] = "";
 				tmp[6] = "false";
 				somethingRemoved = true;
 			}

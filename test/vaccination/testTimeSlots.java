@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class testMainMenu {
+class testTimeSlots {
 
 	@Test
 	public void testAddNewSlot() {
@@ -32,11 +32,13 @@ class testMainMenu {
 		timeslot.AddNewSlot(3, "02.04.2021", "21:00", "22:00");
 		timeslot.AddNewSlot(1, "02.02.2021", "20:00", "21:00");
 
+		
 		timeslot.AddScheduledSlotForPerson(4, 2, 2);
 		
 		assertEquals(true, timeslot.DeleteUnscheduledSlot(0));
 		assertEquals(true, timeslot.DeleteUnscheduledSlot(1));
 		assertEquals(false, timeslot.DeleteUnscheduledSlot(2));
+		
 		assertEquals(false, timeslot.DeleteUnscheduledSlot(-1));
 		assertEquals(false, timeslot.DeleteUnscheduledSlot(120));
 		assertEquals(false, timeslot.DeleteUnscheduledSlot(7));
@@ -80,6 +82,7 @@ class testMainMenu {
 		assertEquals(false, timeslot.DeleteScheduledSlotForPerson(12322));
 		assertEquals(false, timeslot.DeleteScheduledSlotForPerson(-1));
 		assertEquals(true , timeslot.DeleteScheduledSlotForPerson(0));
+		assertEquals(false , timeslot.DeleteScheduledSlotForPerson(4));
 		assertEquals(true , timeslot.DeleteScheduledSlotForPerson(6));
 		assertEquals(true , timeslot.DeleteScheduledSlotForPerson(5));
 	}
