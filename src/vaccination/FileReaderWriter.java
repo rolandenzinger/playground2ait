@@ -43,18 +43,18 @@ public class FileReaderWriter {
 		try {	
 		
 
-		BufferedWriter writer = new BufferedWriter(new FileWriter("Impfstoff", true));
-		writer.append(idstring);
-		writer.append(key);
-		writer.append(info1);
-		writer.append(info2);
-		writer.append(info3);
-		writer.append(info4);
-		writer.append(info5);
-		writer.append(info6);
-		writer.append(info7);
-		writer.append(info8);
-		writer.append(info9);
+		BufferedWriter writer = new BufferedWriter(new FileWriter("Impfung.csv", true));
+		writer.append(idstring + ";");
+		writer.append(key + ";");
+		writer.append(info1 + ";");
+		writer.append(info2 + ";");
+		writer.append(info3 + ";");
+		writer.append(info4 + ";");
+		writer.append(info5 + ";");
+		writer.append(info6 + ";");
+		writer.append(info7 + ";");
+		writer.append(info8 + ";");
+		writer.append(info9 + ";");
 		writer.append(info10);
 
 		writer.close();
@@ -71,27 +71,30 @@ public class FileReaderWriter {
 		// Elias
 		boolean exit = true;
 		
-		File file = new File("Impfstoff.csv");
 		
-		try (Scanner sc = new Scanner(file)) {
 		
-			do {
+		try (BufferedReader read = new BufferedReader(new FileReader("./Impfung.csv"))) {
+		
+			//do {
 
-				String currentLine = scanner.nextLine();
+				String currentLine = read.readLine();
+				//String[] splittedInfos = currentLine.split(";");
 				String[] splittedInfos = currentLine.split(";");
-				if ((splittedInfos[0] == key) && (Integer.parseInt(splittedInfos[1]) == id)) {
-					System.out.println(currentLine);
+				if ((splittedInfos[0].equalsIgnoreCase(key)) && (Integer.parseInt(splittedInfos[1]) == id)) {
 					exit = false;
 					return currentLine;
 
 				}
-			} while (exit);
+			
+				
+			//} while (exit);
 			
 		} catch (FileNotFoundException ex) {
 			
+		} catch (IOException ex) {
 			
 		}
-		
+			
 		return "Fehler";
 
 	}
@@ -102,7 +105,7 @@ public class FileReaderWriter {
 		int i = 0;
 
 		try {
-			BufferedReader read = new BufferedReader(new FileReader("./Impfung.xlsx"));
+			BufferedReader read = new BufferedReader(new FileReader("./Impfung.scv"));
 			System.out.println("File read!");
 			if (read.readLine().equalsIgnoreCase(key)) {
 				while (!(read.readLine().isEmpty())) {
@@ -121,7 +124,7 @@ public class FileReaderWriter {
 
 	public String GetInfoFromBlock(String infoBlock, int IndexOfRequestedInformation) {
 		String info = null;
-		String[] arr = new String[12];
+		String[] arr = new String[11];
 		arr = infoBlock.split(";");
 		info = arr[IndexOfRequestedInformation];
 		return info;
