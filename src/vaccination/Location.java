@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Location {
 
-	private Location_Array[] locations;
-	private int counter = 1;
+	private static Location_Array[] locations;
+	private static int counter = 1;
 	public static Scanner sc = new Scanner(System.in);
 
-	public int addLocation(String name, String street, String zip, String city, String country) { //Fügt Location hinzu
+	public static int addLocation(String name, String street, String zip, String city, String country) { //Fügt Location hinzu
 
 		
 
@@ -37,7 +37,7 @@ public class Location {
 
 	}
 
-	public boolean deleteLocation(int locationID) { // Löscht Location raus
+	public static boolean deleteLocation(int locationID) { // Löscht Location raus
 		
 		boolean quit = false;
 		
@@ -65,7 +65,7 @@ public class Location {
 
 	}
 
-	public void listAllLocation() { // Gibt die Liste der Location aus 
+	public static void listAllLocation() { // Gibt die Liste der Location aus 
 		
 		for (int i = 0; i < locations.length; i++) {
 			System.out.println(locations[i].getLocationID() + "," + locations[i].getName() + "," + locations[i].getStreet() + "," + locations[i].getZip() + "," + locations[i].getCity() + "," + locations[i].getCountry());
@@ -75,14 +75,6 @@ public class Location {
 
 	}
 	
-	
-	public void readOutDatabase() {
-		
-		
-		
-		
-		
-	}
 	
 	
 
