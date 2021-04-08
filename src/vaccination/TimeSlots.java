@@ -49,11 +49,11 @@ public class TimeSlots {
 			if (slotId == Integer.parseInt(tmp[0]) && tmp[6].equals("false")) {
 				schedules[i] = null;
 				if (removeSchedule(i)) {
-					somethingRemoved = true;
+					return true;
 				}
 			}
 		}
-		return somethingRemoved;
+		return false;
 	}
 
 	public int AddScheduledSlotForPerson(int locationId, int personId, int slotId) {

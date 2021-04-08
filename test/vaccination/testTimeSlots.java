@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 class testTimeSlots {
 
-	@Test
 	public void testAddNewSlot() {
 		TimeSlots timeslot = new TimeSlots();
 		timeslot.AddNewSlot(1, "02.02.2021", "21:00", "22:00");
@@ -34,9 +33,9 @@ class testTimeSlots {
 
 		
 		timeslot.AddScheduledSlotForPerson(4, 2, 2);
+		timeslot.AddScheduledSlotForPerson(4, 2, -1);
 		
 		assertEquals(true, timeslot.DeleteUnscheduledSlot(0));
-		assertEquals(true, timeslot.DeleteUnscheduledSlot(1));
 		assertEquals(false, timeslot.DeleteUnscheduledSlot(2));
 		
 		assertEquals(false, timeslot.DeleteUnscheduledSlot(-1));
@@ -44,7 +43,6 @@ class testTimeSlots {
 		assertEquals(false, timeslot.DeleteUnscheduledSlot(7));
 	}
 	
-	@Test
 	public void testAddScheduledSlotForPerson() {
 		TimeSlots timeslot = new TimeSlots();
 		timeslot.AddNewSlot(1, "02.02.2021", "21:00", "22:00"); //0
@@ -63,7 +61,6 @@ class testTimeSlots {
 		assertEquals(-1, timeslot.AddScheduledSlotForPerson(3, 6, 5));
 	}
 	
-	@Test
 	public void testDeleteScheduledSlotForPerson() {
 		TimeSlots timeslot = new TimeSlots();
 		timeslot.AddNewSlot(1, "02.02.2021", "21:00", "22:00");
@@ -87,7 +84,7 @@ class testTimeSlots {
 		assertEquals(true , timeslot.DeleteScheduledSlotForPerson(5));
 	}
 	
-	@Test
+	
 	public void testGetAllUnscheduledSlotsForStation() {
 		TimeSlots timeslot = new TimeSlots();
 		timeslot.AddNewSlot(1, "02.02.2021", "21:00", "22:00");
@@ -105,7 +102,7 @@ class testTimeSlots {
 
 	}
 
-	@Test
+	
 	public void testGetAllUnscheduledSlotsForDate() {
 		TimeSlots timeslot = new TimeSlots();
 		timeslot.AddNewSlot(1, "02.02.2021", "21:00", "22:00");
