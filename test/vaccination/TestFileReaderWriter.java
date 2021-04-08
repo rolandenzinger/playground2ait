@@ -23,7 +23,7 @@ class TestFileReaderWriter {
 		int id = 1;
 		 String info1 = "Paul";
 		 String info2 = "Berger";
-		 String info3 = "Tobistaße8";
+		 String info3 = "Tobistaï¿½e8";
 		 String info4 =  "8700";
 		 String info5 =  "Leoben";
 		 String info6 = "Deutscher";
@@ -38,7 +38,7 @@ class TestFileReaderWriter {
 		String fieldResult = "";
 		fieldResult =test.GetInfoFromBlock(readingResult, 1);
 		
-		assertEquals(readingResult,fieldResult);
+		assertEquals("Person",fieldResult);
 		
 		
 		
