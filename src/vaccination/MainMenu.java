@@ -23,7 +23,7 @@ public class MainMenu {
 				break;
 
 			case "termin":
-				scedule();
+				schedule();
 				break;
 
 			case "person":
@@ -140,7 +140,7 @@ public class MainMenu {
 
 	}
 
-	public static void scedule() {// Terminvergabe mit TimeSlot
+	public static void schedule() {// Terminvergabe mit TimeSlot
 		boolean quit = false;
 		String InterfaceOutput = "Welcome to Terminvergabe:\n" + "------------------------\n"
 				+ "Freie Termine für Standort anzeigen    [ort]\n" + "Freie Termine für Datum anzeigen       [datum]\n"
