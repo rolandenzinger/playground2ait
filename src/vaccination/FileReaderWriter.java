@@ -39,62 +39,52 @@ public class FileReaderWriter {
 	}
 
 	public void fileWriting(FileReaderWriter infoBlock) {
-	String idstring = String.valueOf(id);
-		try {	
-		
+		String idstring = String.valueOf(id);
+		try {
 
-		BufferedWriter writer = new BufferedWriter(new FileWriter("Impfung.csv", true));
-		writer.append(idstring + ";");
-		writer.append(key + ";");
-		writer.append(info1 + ";");
-		writer.append(info2 + ";");
-		writer.append(info3 + ";");
-		writer.append(info4 + ";");
-		writer.append(info5 + ";");
-		writer.append(info6 + ";");
-		writer.append(info7 + ";");
-		writer.append(info8 + ";");
-		writer.append(info9 + ";");
-		writer.append(info10);
+			BufferedWriter writer = new BufferedWriter(new FileWriter("Impfung.csv", true));
+			writer.append(idstring + ";");
+			writer.append(key + ";");
+			writer.append(info1 + ";");
+			writer.append(info2 + ";");
+			writer.append(info3 + ";");
+			writer.append(info4 + ";");
+			writer.append(info5 + ";");
+			writer.append(info6 + ";");
+			writer.append(info7 + ";");
+			writer.append(info8 + ";");
+			writer.append(info9 + ";");
+			writer.append(info10);
 
-		writer.close();
-		}catch(IOException e){
-			
+			writer.close();
+		} catch (IOException e) {
+
 			e.printStackTrace();
-			
+
 		}
 	}
-	
 
 	public String fileReading(String key, int id) {
 
-		// Elias
 		boolean exit = true;
-		
-		
-		
-		try (BufferedReader read = new BufferedReader(new FileReader("./Impfung.csv"))) {
-		
-			//do {
 
-				String currentLine = read.readLine();
-				//String[] splittedInfos = currentLine.split(";");
-				String[] splittedInfos = currentLine.split(";");
-				if ((splittedInfos[0].equalsIgnoreCase(key)) && (Integer.parseInt(splittedInfos[1]) == id)) {
-					exit = false;
-					return currentLine;
+		try (BufferedReader read = new BufferedReader(new FileReader("Impfung.csv"))) {
 
-				}
-			
-				
-			//} while (exit);
-			
+			String currentLine = read.readLine();
+
+			String[] splittedInfos = currentLine.split(";");
+			if ((splittedInfos[0].equalsIgnoreCase(key)) && (Integer.parseInt(splittedInfos[1]) == id)) {
+				exit = false;
+				return currentLine;
+
+			}
+
 		} catch (FileNotFoundException ex) {
-			
+
 		} catch (IOException ex) {
-			
+
 		}
-			
+
 		return "Fehler";
 
 	}
@@ -105,7 +95,7 @@ public class FileReaderWriter {
 		int i = 0;
 
 		try {
-			BufferedReader read = new BufferedReader(new FileReader("./Impfung.scv"));
+			BufferedReader read = new BufferedReader(new FileReader("Impfung.csv"));
 			System.out.println("File read!");
 			if (read.readLine().equalsIgnoreCase(key)) {
 				while (!(read.readLine().isEmpty())) {
