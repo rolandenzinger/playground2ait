@@ -11,10 +11,16 @@ public class Location {
 	public int addLocation(String name, String street, String zip, String city, String country) { // Fügt Location hinzu
 
 		if (counter >= 0) {
-			Location_Array[] locationClone = locations.clone();
-			counter++;
+			Location_Array[] locationClone = new Location_Array[locations.length+1];
+		
+			
+			for(int i = 0; i < locations.length; i++) {
+				locationClone[i] = locations[i];
+			}
 
 			locations = new Location_Array[counter];
+			
+			
 
 			for (int i = 0; i < locations.length; i++) {
 				if (locations.length == counter) {
@@ -73,6 +79,10 @@ public class Location {
 
 		}
 
+	}
+	
+	public Location_Array[] getLocations() {
+		return locations;
 	}
 
 }
