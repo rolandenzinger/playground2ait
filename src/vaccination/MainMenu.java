@@ -57,21 +57,20 @@ public class MainMenu {
 		// public int[] getAllUnscheduledSlotsForStation(int locationId)
 		boolean quit = false;
 		String InterfaceOutput = "Willkommen bei Impfzeitfenster\n" + "------------------------\n"
-				+ "Geben Sie (hinzufügen) ein umx ein Freies Impfenster anzulegen.\n"
-				+ "Geben Sie (entfernen) um einen Impfzeitfenster zu löschen.";
+				+ "Geben Sie (hinzufuegen) ein um ein Freies Impfenster anzulegen.\n"
+				+ "Geben Sie (entfernen) um einen Impfzeitfenster zu löschen.\n"
+				+ "Geben Sie (zurueck) um zu verlassen";
 
-		try {
-			// String userInput = Integer.parseInt(UserInterface.AskForString());
-		} catch (NumberFormatException e) {
-			UserInterface.SaySomething("Bitte geben sie hinzufügen oder entfernen ein.");
-		}
-		switch (InterfaceOutput) {
-		case "hinzufügen":
-			slot.AddScheduledSlotForPerson(saveInt("Geben sie die location ein"),
+		switch (UserInterface.AskForString(InterfaceOutput)) {
+		case "hinzufuegen":
+			
+		slot.AddScheduledSlotForPerson(saveInt("Geben sie die locationID ein"),
 
 					saveInt("Geben sie eine PeronID"),
 
 					saveInt("Geben sie eine SlotID"));
+					quit = true;
+					UserInterface.SaySomething("hinzufügen erfolgreich");
 			break;
 		case "entfernen":
 			slot.DeleteUnscheduledSlot(saveInt("Geben sie die SlotID ein"));
@@ -79,15 +78,16 @@ public class MainMenu {
 			// boolean bool = saveBoolean("geben Sie war oder falsch für löschen an")) //
 			// löscht der Termin weg
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
-			break;
-		case "zurück":
 			quit = true;
+			break;
+		case "zurueck":
+			quit = true;
+			break;
 		default:
 			UserInterface.SaySomething("Falsche Eingabe");
 			break;
 		}
-		while (!quit)
-			;
+		while (!quit);
 
 	}
 
