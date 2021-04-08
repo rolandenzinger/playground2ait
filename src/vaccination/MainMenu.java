@@ -7,18 +7,13 @@ public class MainMenu {
 	public static void main(String[] args) {
 		// Main UI
 		boolean quit = false;
-		String InterfaceOutput = 
-		"Welcome to VacManager:\n"+
-		"------------------------\n"+
-		"Standortverwaltung    [ort]\n"+
-		"Impf-Zeitfenster      [zeit]\n"+
-		"Terminvergabe         [termin]\n"+
-		"Personalverwaltung    [person]\n"+
-		"Über diese Applikation[über]\n"+
-		"Beenden               [Beenden]";
+		String InterfaceOutput = "Welcome to VacManager:\n" + "------------------------\n"
+				+ "Standortverwaltung    [ort]\n" + "Impf-Zeitfenster      [zeit]\n"
+				+ "Terminvergabe         [termin]\n" + "Personalverwaltung    [person]\n"
+				+ "Über diese Applikation[über]\n" + "Beenden               [Beenden]";
 
 		do {
-			 switch (UserInterface.AskForString(InterfaceOutput)){
+			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
 				location();
 				break;
@@ -26,26 +21,26 @@ public class MainMenu {
 			case "zeit":
 				timeSlot();
 				break;
-			
+
 			case "termin":
 				scedule();
 				break;
 
 			case "person":
 				personal();
-				break; 
-			
+				break;
+
 			case "über":
 				about();
 				break;
-			
+
 			case "beenden":
-				quit = true; 
+				quit = true;
 			default:
-			UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
-			break;
+				UserInterface.SaySomething("Kein Eintrag unter diesem Namen");
+				break;
 			}
-		} while(!quit);
+		} while (!quit);
 	}
 
 	// nicht fertig
@@ -64,20 +59,20 @@ public class MainMenu {
 		"Geben Sie (entfernen) um einen Impfzeitfenster zu löschen.";
 		
 		try {
-    		String userInput = Integer.parseInt(UserInterface.AskForString());
+    		//String userInput = Integer.parseInt(UserInterface.AskForString());
         } catch (NumberFormatException e) {
             UserInterface.SaySomething("Bitte geben sie hinzufügen oder entfernen ein.");
         }
 		switch (InterfaceOutput) {
             case "hinzufügen":
-			AddScheduledSlotForPerson(int saveInt("Geben sie die location ein"),
+			TimeSlots.AddScheduledSlotForPerson(saveInt("Geben sie die location ein"),
 
-	int saveInt("Geben sie eine PeronID"),
+	 saveInt("Geben sie eine PeronID"),
 
-	int saveInt("Geben sie eine SlotID"));
+	 saveInt("Geben sie eine SlotID"));
                 break;
             case "entfernen":
-			DeleteUnscheduledSlot(int saveInt("Geben sie die SlotID ein");
+			TimeSlots.DeleteUnscheduledSlot( saveInt("Geben sie die SlotID ein");
 
 		//boolean bool = saveBoolean("geben Sie war oder falsch für löschen an")) // löscht der Termin weg
 			UserInterface.SaySomething("*Ungebuchtes Impf-Zeitfenster gelöscht*");
@@ -91,41 +86,43 @@ public class MainMenu {
 
 	}
 
-	public static void personal() { //Personenverwaltung 	mit Person
+	public static void personal() { // Personenverwaltung mit Person
 		boolean quit = false;
-		String InterfaceOutput = 
-		"Willkommen bei Personenverwaltung\n"+
-		"------------------------\n"+
-		"Geben Sie (anlegem) um eine neue Person anzulegen.\n"+
-		"Geben Sie (löschen) um eine Person zu löschen.\n"+
-		"Geben Sie (auflisten) ein um Alle Personen zu listen";
+		String InterfaceOutput = "Willkommen bei Personenverwaltung\n" + "------------------------\n"
+				+ "Geben Sie (anlegem) um eine neue Person anzulegen.\n"
+				+ "Geben Sie (löschen) um eine Person zu löschen.\n"
+				+ "Geben Sie (auflisten) ein um Alle Personen zu listen";
 
 		String InterfaceInput = UserInterface.AskForString(InterfaceOutput);
-		switch (InterfaceInput) {
-            case "hinzufügen":
-                String personID = UserInterface.AskForString("Please enter PersonID");
-                String fistName = UserInterface.AskForString("Please enter first Name");
-                String lastName = UserInterface.AskForString("Please enter last Name");
-                String socialSecurityNumber = IsaveInt("Please enter Social Security number");
-                String street = UserInterface.AskForString("Please enter street");
-                String zip = saveInt("Please enter ZIP");
-                String city = UserInterface.AskForString("Please enter City");
-                String country = UserInterface.AskForString("Please enter Country");
-                String birthday = UserInterface.AskForString("Please enter Birthday");
-                String elephone = saveInt("Please enter telephone number");
-            //    Person.addNewPerson(String personID, String firstName, String lastName, String socialSecurityNumber,String street, String zip, String city, 
-			// 						String country, String birthday, String telephone);break;case"entfernen":Person.deletePerson(saveInt("geben Sie die Id der zu löschenden Person an"));
-                break;
+		do {
+			switch (InterfaceInput) {
+			case "hinzufügen":
+				String personID = UserInterface.AskForString("Please enter PersonID");
+				String fistName = UserInterface.AskForString("Please enter first Name");
+				String lastName = UserInterface.AskForString("Please enter last Name");
+				String socialSecurityNumber = UserInterface.AskForString("Please enter Social Security number");
+				String street = UserInterface.AskForString("Please enter street");
+				String zip = UserInterface.AskForString("Please enter ZIP");
+				String city = UserInterface.AskForString("Please enter City");
+				String country = UserInterface.AskForString("Please enter Country");
+				String birthday = UserInterface.AskForString("Please enter Birthday");
+				String elephone = UserInterface.AskForString("Please enter telephone number");
+				// Person.addNewPerson(String personID, String firstName, String lastName,
+				// String socialSecurityNumber,String street, String zip, String city,
+				// String country, String birthday, String
+				// telephone);break;case"entfernen":Person.deletePerson(saveInt("geben Sie die
+				// Id der zu löschenden Person an"));
+				break;
 			case "auflisten":
-			person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
-            break;
+				Person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
+				break;
 			case "zurück":
-			quit = true; 
+				quit = true;
 			default:
-			UserInterface.SaySomething("Falsche Eingabe");
-		}
+				UserInterface.SaySomething("Falsche Eingabe");
+			}
 
-	}while(!quit);
+		} while (!quit);
 
 	}
 
@@ -161,15 +158,15 @@ public class MainMenu {
 			break;
 
 		case "zeit":
-		TimeSlots.GetAllUnscheduledSlotsForDate(GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an")))
+		TimeSlots.GetAllUnscheduledSlotsForDate(UserInterface.AskForString("Geben Sie das Datum an")))
 			break;
 		
 		case "buchen":
-		TimeSlots.AddScheduledSlotForPerson(int saveInt("Geben Sie die ID der Location an"),int saveInt("Geben Sie die ID der Person an"),int saveInt("Geben Sie die ID des Slots an"));
+		TimeSlots.AddScheduledSlotForPerson( saveInt("Geben Sie die ID der Location an"), saveInt("Geben Sie die ID der Person an"), saveInt("Geben Sie die ID des Slots an"));
 		break;
 
 		case "löschen":
-		TimeSlots.DeleteScheduledSlotForPerson(int saveInt("Geben Sie die ID des zu löschenden Slots an"));
+		TimeSlots.DeleteScheduledSlotForPerson( saveInt("Geben Sie die ID des zu löschenden Slots an"));
 	break;
 
 	case "zurück":
@@ -192,21 +189,21 @@ public class MainMenu {
 	"Standort löschen      	[löschen]"+
 	"Standorte auflisten		[liste]"+
 	"zurück                  [zurück]";
-	boolean quit = false; 
+
 	do {
 		switch (UserInterface.AskForString(InterfaceOutput)){
 			case "ort":
-			addLocation(String UserInterface.AskForString("geben Sie den Namen an"), String UserInterface.AskForString("geben Sie die Straße an"), String UserInterface.AskForString("geben Sie den Zip code an"), String UserInterface.AskForString("geben Sie die Stadt"), String UserInterface.AskForString("geben Sie die Stadt an"));
+			Location.addLocation(UserInterface.AskForString("geben Sie den Namen an"),UserInterface.AskForString("geben Sie die Straße an"),UserInterface.AskForString("geben Sie den Zip code an"),UserInterface.AskForString("geben Sie die Stadt"), UserInterface.AskForString("geben Sie die Stadt an"));
 			break;
 
 			case "löschen":
-			deleteLocation();
 
-	int saveInt("geben Sie die ID der Location an"))
+			int id = saveInt("geben Sie die ID der Location an"));
+			Location.deleteLocation(id);
 			break;
 
 			case"liste":
-			listAllLocation();
+			Location.listAllLocation();
 			break;
 
 			case"zurück":
@@ -224,7 +221,7 @@ public class MainMenu {
 		boolean quit = false;
 		do {
 			try {
-				return Interger.parseInt(UserInterface.AskForString(Output));
+				return Integer.parseInt(UserInterface.AskForString(Output));
 			} catch (Exception ex) {
 				UserInterface.SaySomething("not a number");
 			}
@@ -233,9 +230,16 @@ public class MainMenu {
 	}
 
 	public static boolean saveBoolean(String Output) {
-		do{String preBool=UserInterface.AskForString(Output)if(preBool.equalsIgnoreCase("wahr")){return true;}else if(preBool.equalsIgnoreCase("falsch")){return false;}else{UserInterface.SaySomething("Geben sie wahr oder falsch an");}
-
-		}while(true);
+		do {
+			String preBool = UserInterface.AskForString(Output);
+			if (preBool.equalsIgnoreCase("wahr")) {
+				return true;
+			} else if (preBool.equalsIgnoreCase("falsch")) {
+				return false;
+			} else {
+				UserInterface.SaySomething("Geben sie wahr oder falsch an");
+			}
+		} while (true);
 	}
 
 }
