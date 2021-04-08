@@ -19,6 +19,7 @@ class TestPerson {
 		list.deletePerson(new Person("556365", "Max", "Mustermann", "12345", "Straße", "1234", "Stadt",
 				"Land", "12.34.5678", "12345678"));
 		list.listAllPersons();
+		list.getPersonList();
 	}
 
 }
