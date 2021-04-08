@@ -23,7 +23,7 @@ public class MainMenu {
 				break;
 
 			case "termin":
-				scedule();
+				schedule();
 				break;
 
 			case "person":
@@ -92,34 +92,65 @@ public class MainMenu {
 	}
 
 	public static void personal() { // Personenverwaltung mit Person
-		Person person = new Person();
+		String personID = UserInterface.AskForString("Please enter PersonID");
+		String firstName = UserInterface.AskForString("Please enter first Name");
+		String lastName = UserInterface.AskForString("Please enter last Name");
+		String socialSecurityNumber = UserInterface.AskForString("Please enter Social Security number");
+		String street = UserInterface.AskForString("Please enter street");
+		String zip = UserInterface.AskForString("Please enter ZIP");
+		String city = UserInterface.AskForString("Please enter City");
+		String country = UserInterface.AskForString("Please enter Country");
+		String birthday = UserInterface.AskForString("Please enter Birthday");
+		String telephone = UserInterface.AskForString("Please enter telephone number");
+		// Person person = new Person(personID, firstName, lastName,
+		// socialSecurityNumber, street, zip, city, country,
+		// birthday, telephone);
+		PersonArray array = new PersonArray();
 		boolean quit = false;
 		String InterfaceOutput = "Willkommen bei Personenverwaltung\n" + "------------------------\n"
-				+ "Geben Sie (anlegem) um eine neue Person anzulegen.\n"
-				+ "Geben Sie (löschen) um eine Person zu löschen.\n"
-				+ "Geben Sie (auflisten) ein um Alle Personen zu listen";
-		String InterfaceInput = UserInterface.AskForString(InterfaceOutput);
+				+ "Geben Sie (anlegen) um eine neue Person anzulegen.\n"
+				+ "Geben Sie (entfernen) um eine Person zu löschen.\n"
+				+ "Geben Sie (auflisten) ein um Alle Personen zu listen"
+				+ "Geben Sie (haupt) ein um zurück zum Hauptmenü zu kommen";
 		do {
+			String InterfaceInput = UserInterface.AskForString(InterfaceOutput);
 			switch (InterfaceInput) {
-			case "hinzufügen":
-				String personID = UserInterface.AskForString("Please enter PersonID");
-				String firstName = UserInterface.AskForString("Please enter first Name");
-				String lastName = UserInterface.AskForString("Please enter last Name");
-				String socialSecurityNumber = UserInterface.AskForString("Please enter Social Security number");
-				String street = UserInterface.AskForString("Please enter street");
-				String zip = UserInterface.AskForString("Please enter ZIP");
-				String city = UserInterface.AskForString("Please enter City");
-				String country = UserInterface.AskForString("Please enter Country");
-				String birthday = UserInterface.AskForString("Please enter Birthday");
-				String telephone = UserInterface.AskForString("Please enter telephone number");
-				person.addNewPerson(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
+			case "anlegen":
+				personID = UserInterface.AskForString("Please enter PersonID");
+				firstName = UserInterface.AskForString("Please enter first Name");
+				lastName = UserInterface.AskForString("Please enter last Name");
+				socialSecurityNumber = UserInterface.AskForString("Please enter Social Security number");
+				street = UserInterface.AskForString("Please enter street");
+				zip = UserInterface.AskForString("Please enter ZIP");
+				city = UserInterface.AskForString("Please enter City");
+				country = UserInterface.AskForString("Please enter Country");
+				birthday = UserInterface.AskForString("Please enter Birthday");
+				telephone = UserInterface.AskForString("Please enter telephone number");
+				array.addNewPerson(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
 						birthday, telephone);
+				quit = true;
+				UserInterface.SaySomething("erstellt");
 				break;
 			case "entfernen":
-				person.deletePerson(UserInterface.AskForString("geben Sie die Id der zu löschenden Person an"));
+				personID = UserInterface.AskForString("Please enter PersonID");
+				firstName = UserInterface.AskForString("Please enter first Name");
+				lastName = UserInterface.AskForString("Please enter last Name");
+				socialSecurityNumber = UserInterface.AskForString("Please enter Social Security number");
+				street = UserInterface.AskForString("Please enter street");
+				zip = UserInterface.AskForString("Please enter ZIP");
+				city = UserInterface.AskForString("Please enter City");
+				country = UserInterface.AskForString("Please enter Country");
+				birthday = UserInterface.AskForString("Please enter Birthday");
+				telephone = UserInterface.AskForString("Please enter telephone number");
+				Person del = new Person(personID, firstName, lastName, socialSecurityNumber, street, zip, city, country,
+						birthday, telephone);
+				array.deletePerson(del);
+				quit = true;
+				UserInterface.SaySomething("erstellt");
 				break;
 			case "auflisten":
-				person.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
+				array.listAllPersons(); // listet alle Personen auf in der CLI mit system.out.println();
+				quit = true;
 				break;
 			case "zurück":
 				quit = true;
@@ -140,7 +171,7 @@ public class MainMenu {
 
 	}
 
-	public static void scedule() {// Terminvergabe mit TimeSlot
+	public static void schedule() {// Terminvergabe mit TimeSlot
 		boolean quit = false;
 		String InterfaceOutput = "Welcome to Terminvergabe:\n" + "------------------------\n"
 				+ "Freie Termine für Standort anzeigen    [ort]\n" + "Freie Termine für Datum anzeigen       [datum]\n"
@@ -194,7 +225,7 @@ public class MainMenu {
 	}
 
 	public static void location() { // Standortverwaltung mit Location
-		Location loc = new Location();
+		// Location loc = new Location();
 		boolean quit = false;
 		String InterfaceOutput = "Welcome to Standortverwaltung:\n" + "------------------------\n"
 				+ "Standort hinzufügen     [dazu]\n" + "Standort löschen      	[löschen]\n"
@@ -203,7 +234,7 @@ public class MainMenu {
 		do {
 			switch (UserInterface.AskForString(InterfaceOutput)) {
 			case "ort":
-				loc.addLocation(UserInterface.AskForString("geben Sie den Namen an"),
+				Location.addLocation(UserInterface.AskForString("geben Sie den Namen an"),
 						UserInterface.AskForString("geben Sie die Straße an"),
 						UserInterface.AskForString("geben Sie den Zip code an"),
 						UserInterface.AskForString("geben Sie die Stadt"),
@@ -213,11 +244,11 @@ public class MainMenu {
 			case "löschen":
 
 				int id = saveInt("geben Sie die ID der Location an");
-				loc.deleteLocation(id);
+				Location.deleteLocation(id);
 				break;
 
 			case "liste":
-				loc.listAllLocation();
+				Location.listAllLocation();
 				break;
 
 			case "zurück":
